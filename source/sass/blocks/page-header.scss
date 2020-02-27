@@ -1,0 +1,187 @@
+.page-header {
+  font-size: $font-size_s;
+  line-height: $line-height_s;
+  color: $text-color_primary;
+
+  background-color: $background-color_secondary;
+
+  a {
+    color: inherit;
+  }
+}
+
+.page-header__inner {
+  @include container_desktop;
+
+  display: flex;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 35px;
+  padding-left: 60px;
+}
+
+.page-header__logo {
+  flex-shrink: 0;
+  margin-right: 4.8%;
+
+  svg {
+    fill: $blue;
+  }
+}
+
+.page-header__nav {
+  margin-right: auto;
+  padding-top: 11px;
+
+  white-space: nowrap;
+}
+
+.page-header__nav-toggle {
+  display: none;
+}
+
+.page-header__nav-list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page-header__nav-item {
+  margin-right: 25px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.page-header__user-list {
+  @include list-reset;
+
+  padding-top: 8px;
+  padding-right: 2px;
+}
+
+.page-header__login {
+  display: flex;
+  align-items: flex-end;
+
+  svg {
+    flex-shrink: 0;
+    margin-right: 10px;
+
+    fill: $text-color_primary;
+  }
+}
+
+@media (max-width: $max-width_tablet) {
+  .page-header {
+    font-size: $font-size_xs;
+    line-height: $line-height_xs;
+  }
+
+  .page-header__inner {
+    @include container_tablet;
+    padding-top: 22px;
+    padding-bottom: 23px;
+  }
+
+  .page-header__logo {
+    margin-right: 9.5%;
+
+    img {
+      width: 134px;
+      height: 24px;
+    }
+  }
+
+  .page-header__nav {
+    padding-top: 0;
+  }
+
+  .page-header__nav-item {
+    margin-right: 21px;
+  }
+
+  .page-header__user-list {
+    padding: 0;
+  }
+
+  .page-header__login {
+
+    svg {
+      margin-right: 0;
+    }
+
+    span {
+      @include hidden;
+    }
+  }
+}
+
+@media (max-width: $max-width_mobile) {
+  .page-header__inner {
+    @include container_mobile;
+    align-items: flex-end;
+    padding-top: 11px;
+    padding-bottom: 18px;
+  }
+
+  .page-header__logo {
+
+    img {
+      width: 114px;
+      height: 19px;
+    }
+  }
+
+  .page-header__nav {
+    order: -1;
+    margin-right: 14px;
+  }
+
+  .page-header__nav-toggle {
+    position: relative;
+
+    @include button-reset;
+    display: block;
+    width: 16px;
+    height: 12px;
+
+    background-color: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 100%;
+
+      background: linear-gradient(
+        to bottom,
+        black, black 10%,
+        transparent 10%, transparent 45%,
+        black 45%, black 55%,
+        transparent 55%, transparent 90%,
+        black 90%, black 100%
+      );
+    }
+  }
+
+  .page-header__nav-list {
+    display: none;
+  }
+
+  .page-header__user-list {
+    margin-left: auto;
+    padding-top: 2px;
+  }
+
+  .page-header__login {
+    svg {
+      width: 14px;
+      height: 16px;
+    }
+  }
+}

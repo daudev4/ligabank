@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Лига Банк &mdash; Кредиты на любой случай</title>
+  <meta name="description" content="Лига Банк выдает кредиты под любые цели">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div style="display: none">
+    <include src="build/img/sprite_auto.svg"></include>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <a class="page-header__logo" href="#">
+        <picture>
+          <source media="(max-width: 767px)" srcset="img/logo_mobile.svg">
+          <source media="(max-width: 1023px)" srcset="img/logo_tablet.svg">
+
+          <img src="img/logo.svg" width="150" height="27" alt="Логотип Лига Банк">
+        </picture>
+      </a>
+      <nav class="page-header__nav">
+        <button class="page-header__nav-toggle">
+          <span class="visually-hidden">
+            Открыть/Закрыть меню
+          </span>
+        </button>
+        <ul class="page-header__nav-list">
+          <li class="page-header__nav-item">
+            <a href="#">
+              Услуги
+            </a>
+          </li>
+          <li class="page-header__nav-item">
+            <a href="#">
+              Рассчитать кредит
+            </a>
+          </li>
+          <li class="page-header__nav-item">
+            <a href="#">
+              Контакты
+            </a>
+          </li>
+          <li class="page-header__nav-item">
+            <a href="#">
+              Задать вопрос
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ul class="page-header__user-list">
+        <li class="page-header__user-item">
+          <a class="page-header__login" href="#">
+            <svg width="20" height="22">
+              <use xlink:href="#icon-login"></use>
+            </svg>
+            <span>
+              Войти в Интернет-банк
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</body>
+
+</html>
