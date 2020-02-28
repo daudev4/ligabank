@@ -1,0 +1,42 @@
+.logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.logo__icon {
+  margin-right: 8px;
+
+  fill: $background-color_accent;
+  stroke: $background-color_secondary;
+}
+
+.logo__text {
+  fill: $text-color_primary;
+}
+
+@media (max-width: $max-width_tablet) {
+  .logo__icon {
+    width: 26px;
+    height: 24px;
+    margin-right: 6px;
+  }
+
+  .logo__text {
+    width: 101px;
+    height: 14px;
+  }
+}
+
+@media (max-width: $max-width_mobile) {
+  .logo__icon {
+    width: 20px;
+    height: 19px;
+    margin-right: 5px;
+  }
+
+  .logo__text {
+    width: 89px;
+    height: 13px;
+  }
+}

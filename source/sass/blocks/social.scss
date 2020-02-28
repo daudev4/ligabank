@@ -1,0 +1,22 @@
+.social {
+  @include list-reset;
+
+  display: flex;
+  align-items: center;
+
+  line-height: 0;
+}
+
+.social__item {
+  margin-right: 15px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: $max-width_tablet) {
+  .social__item {
+    margin-right: 20px;
+  }
+}

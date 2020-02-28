@@ -17,13 +17,16 @@
 
   <header class="page-header">
     <div class="page-header__inner">
-      <a class="page-header__logo" href="#">
-        <picture>
-          <source media="(max-width: 767px)" srcset="img/logo_mobile.svg">
-          <source media="(max-width: 1023px)" srcset="img/logo_tablet.svg">
-
-          <img src="img/logo.svg" width="150" height="27" alt="Логотип Лига Банк">
-        </picture>
+      <a class="page-header__logo logo" href="#">
+        <svg class="logo__icon" width="30" height="27">
+          <use xlink:href="#icon-logo"></use>
+        </svg>
+        <svg class="logo__text" width="112" height="16">
+          <use xlink:href="#icon-logo-text"></use>
+        </svg>
+        <span class="visually-hidden">
+          Логотип Лига Банк
+        </span>
       </a>
       <nav class="page-header__nav">
         <button class="page-header__nav-toggle">
@@ -68,6 +71,129 @@
       </ul>
     </div>
   </header>
+
+  <main></main>
+
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <div class="page-footer__item page-footer__main">
+        <a class="page-footer__logo logo" href="#">
+          <svg class="logo__icon" width="30" height="27">
+            <use xlink:href="#icon-logo"></use>
+          </svg>
+          <svg class="logo__text" width="112" height="16">
+            <use xlink:href="#icon-logo-text"></use>
+          </svg>
+          <span class="visually-hidden">
+            Логотип Лига Банк
+          </span>
+        </a>
+        <p class="page-footer__address">
+          150015, г. Москва, ул. Московская, д. 32
+          Генеральная лицензия Банка России №1050
+          Ⓒ Лига Банк, 2019
+        </p>
+        <nav class="page-footer__nav">
+          <ul class="page-footer__nav-list">
+            <li class="page-footer__nav-item">
+              <a href="#">
+                Услуги
+              </a>
+            </li>
+            <li class="page-footer__nav-item">
+              <a href="#">
+                Рассчитать кредит
+              </a>
+            </li>
+            <li class="page-footer__nav-item">
+              <a href="#">
+                Контакты
+              </a>
+            </li>
+            <li class="page-footer__nav-item">
+              <a href="#">
+                Задать вопрос
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="page-footer__item page-footer__contacts">
+        <div class="page-footer__phone">
+          <a class="page-footer__phone-link" href="tel:*0904">
+            <svg width="10" height="16">
+              <use xlink:href="#icon-smartphone"></use>
+            </svg>
+            <span>
+              *0904
+            </span>
+          </a>
+          <p>
+            Бесплатно для абонентов
+            <br>
+            МТС, Билайн, Мегафон, Теле2
+          </p>
+        </div>
+        <div class="page-footer__phone">
+          <a class="page-footer__phone-link" href="tel:88001112233">
+            <svg width="16" height="16">
+              <use xlink:href="#icon-handset"></use>
+            </svg>
+            <span>
+              8 800 111 22 33
+            </span>
+          </a>
+          <p>
+            Бесплатный для всех
+            <br>
+            городов России
+          </p>
+        </div>
+        <ul class="page-footer_social social">
+          <li class="social__item">
+            <a class="social__item-link" href="#">
+              <svg width="9" height="16">
+                <use xlink:href="#icon-social_facebook">
+              </svg>
+              <span class="visually-hidden">
+                Мы в Facebook
+              </span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__item-link" href="#">
+              <svg width="16" height="16">
+                <use xlink:href="#icon-social_instagram">
+              </svg>
+              <span class="visually-hidden">
+                Мы в Instagram
+              </span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__item-link" href="#">
+              <svg width="16" height="13">
+                <use xlink:href="#icon-social_twitter">
+              </svg>
+              <span class="visually-hidden">
+                Мы в Twitter
+              </span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__item-link" href="#">
+              <svg width="16" height="13">
+                <use xlink:href="#icon-social_youtube">
+              </svg>
+              <span class="visually-hidden">
+                Мы в Youtube
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
