@@ -1,0 +1,400 @@
+.banner {
+  @include font($font-family_primary, $font-size_xl, 400, $line-height_xl);
+  color: $text-color_primary;
+}
+
+.banner__slider {
+  width: 100%;
+  height: 400px;
+
+  .swiper-pagination {
+    bottom: 35px;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: $blue_darker;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $background-color_secondary;
+  }
+}
+
+.banner__slider-list {
+  @include list-reset;
+}
+
+.banner__slide-inner {
+  @include container_desktop;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 103px;
+  padding-left: 268px;
+
+  background-repeat: no-repeat;
+  background-position: 30% 0;
+  background-size: 1366px 400px;
+}
+
+.banner__slide {
+  color: $text-color_primary;
+
+  background-color: $background-color_secondary;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 9px;
+
+    font-size: $font-size_xxxxl;
+    font-weight: 700;
+    line-height: $line-height_xxxxl;
+  }
+
+  p {
+    margin: 0;
+
+    color: $text-color_secondary;
+  }
+
+  .button {
+    margin-top: 34px;
+  }
+}
+
+.banner__slide-button {
+  padding: 16px 36px;
+
+  font-size: $font-size_m;
+  line-height: $line-height_m;
+}
+
+.banner__slide_main {
+  color: $text-color_accent;
+
+  background-color: $background-color_accent;
+
+  p {
+    color: $gray_light;
+  }
+
+  .button {
+    background-color: $background-color_secondary;
+
+    color: $text-color_primary
+  }
+
+  .banner__slide-inner {
+    position: relative;
+
+    background-position: 100% 0;
+    background-image: url("../img/banner-slide-1_desktop@1x.png");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/banner-slide-1_desktop@2x.png");
+    }
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      display: block;
+      width: 289px;
+      height: 182px;
+
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: cover;
+      box-shadow: 0px 4px 23px rgba(25, 26, 31, 0.2);
+    }
+
+    &::before {
+      z-index: 2;
+      top: 138px;
+      left: 52.7%;
+
+      background-image: url("../img/card-black_desktop@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/card-black_desktop@2x.png");
+      }
+    }
+
+    &::after {
+      z-index: 1;
+      top: 80px;
+      left: 60.7%;
+
+      background-image: url("../img/card-white_desktop@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/card-white_desktop@2x.png");
+      }
+    }
+  }
+}
+
+.banner__slide_2 {
+  background:
+    linear-gradient(to right,#dde2ec calc(50% - 583px), #f2f8ff calc(50% + 583px), transparent calc(50% + 583px)),
+    linear-gradient(to bottom, #eff6ff, #f6fbff);
+
+
+  .banner__slide-inner {
+    background-image: url("../img/banner-slide-2_desktop@1x.jpg");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/banner-slide-2_desktop@2x.jpg");
+    }
+  }
+}
+
+.banner__slide_3 {
+  background-color: #e6f1fe;
+
+  .banner__slide-inner {
+    background-image: url("../img/banner-slide-3_desktop@1x.jpg");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/banner-slide-3_desktop@2x.jpg");
+    }
+  }
+
+  .button {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+}
+
+@media (max-width: $max-width_tablet) {
+  .banner {
+    font-size: $font-size_m;
+    line-height: $line-height_m;
+  }
+
+  .banner__slider {
+    height: 300px;
+
+    .swiper-pagination {
+      bottom: 10px;
+    }
+  }
+
+  .banner__slide-inner {
+    @include container_tablet;
+    padding-top: 65px;
+    padding-left: 86px;
+
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 768px 300px;
+  }
+
+  .banner__slide {
+
+    h2 {
+      margin-bottom: 7px;
+
+      font-size: $font-size_xxxl;
+      line-height: $line-height_xxxl;
+    }
+
+    .button {
+      margin-top: 30px;
+    }
+  }
+
+  .banner__slide-button {
+    padding: 15px 31px;
+
+    font-size: $font-size_s;
+    line-height: $line-height_s;
+  }
+
+  .banner__slide_main {
+    .banner__slide-inner {
+
+      background-size: 312px 300px;
+      background-image: url("../img/banner-slide-1_tablet@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/banner-slide-1_tablet@2x.png");
+      }
+
+      &::before,
+      &::after {
+        width: 226px;
+        height: 142px;
+      }
+
+      &::before {
+        top: 101px;
+        left: 48.3%;
+
+        background-image: url("../img/card-black_tablet@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/card-black_tablet@2x.png");
+        }
+      }
+
+
+      &::after {
+        top: 57px;
+        left: 59.4%;
+
+        background-image: url("../img/card-white_tablet@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/card-white_tablet@2x.png");
+        }
+      }
+    }
+  }
+
+  .banner__slide_2 {
+    background:
+      linear-gradient(to right,#dde2ec calc(50% - 384px), #f2f8ff calc(50% + 384px), transparent calc(50% + 384px)),
+      linear-gradient(to bottom, #f1f6ff, #f5fbff);
+
+    .banner__slide-inner {
+      background-image: url("../img/banner-slide-2_tablet@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/banner-slide-2_tablet@2x.jpg");
+      }
+    }
+  }
+
+  .banner__slide_3 {
+    background-color: #e6f1fe;
+
+    .banner__slide-inner {
+      background-image: url("../img/banner-slide-3_tablet@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/banner-slide-3_tablet@2x.jpg");
+      }
+    }
+
+    .button {
+      padding-right: 38px;
+      padding-left: 38px;
+    }
+  }
+}
+
+@media (max-width: $max-width_mobile) {
+
+  .banner {
+    font-size: $font-size_s;
+    line-height: $line-height_s;
+  }
+
+  .banner__slider {
+    height: 226px;
+
+    .swiper-pagination {
+      bottom: 6px;
+    }
+
+    &>.swiper-pagination .swiper-pagination-bullet {
+      width: 6px;
+      height: 6px;
+      margin: 0 3px;
+    }
+  }
+
+  .banner__slide-inner {
+    @include container_mobile;
+    padding-top: 38px;
+
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 320px 226px;
+  }
+
+  .banner__slide {
+    h2 {
+      margin-bottom: 8px;
+
+      font-size: $font-size_xxl;
+      line-height: $line-height_xxl;
+    }
+
+    .button {
+      margin-top: 26px;
+    }
+  }
+
+  .banner__slide-button {
+    padding-top: 13px;
+    padding-bottom: 14px;
+
+    font-size: $font-size_xs;
+    line-height: $line-height_xs;
+  }
+
+  .banner__slide_main {
+    .banner__slide-inner {
+      background-image: none;
+
+      &::before {
+        top: 48px;
+        right: 0;
+        left: auto;
+
+        width: 82px;
+        height: 133px;
+
+        background-image: url("../img/card-black_mobile@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/card-black_mobile@2x.png");
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .banner__slide_2 {
+    background: none;
+    background-color: #dde2ec;
+
+    .banner__slide-inner {
+      background-image: url("../img/banner-slide-2_mobile@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/banner-slide-2_mobile@2x.jpg");
+      }
+    }
+  }
+
+  .banner__slide_3 {
+    background-color: #e6f1fe;
+
+    .banner__slide-inner {
+      background-image: url("../img/banner-slide-3_mobile@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/banner-slide-3_mobile@2x.jpg");
+      }
+    }
+
+    .button {
+      padding-right: 37px;
+      padding-left: 37px;
+    }
+  }
+}

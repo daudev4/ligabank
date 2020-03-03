@@ -1,0 +1,21 @@
+.button {
+  display: block;
+  padding: 15px 31px;
+
+  @include font($font-family_primary, $font-size_s, 500, $line-height_s);
+  color: $text-color_accent;
+  text-align: center;
+
+  background-color: $background-color_accent;
+  border-radius: 4px;
+}
+
+@media (max-width: $max-width_mobile) {
+  .button {
+    padding-top: 13px;
+    padding-bottom: 14px;
+
+    font-size: $font-size_xs;
+    line-height: $line-height_xs;
+  }
+}
