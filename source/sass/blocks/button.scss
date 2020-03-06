@@ -1,13 +1,36 @@
 .button {
-  display: block;
+  display: inline-block;
   padding: 15px 31px;
 
   @include font($font-family_primary, $font-size_s, 500, $line-height_s);
   color: $text-color_accent;
   text-align: center;
 
+  @include transition;
   background-color: $background-color_accent;
   border-radius: 4px;
+
+  &_bigger {
+    padding: 16px 36px;
+
+    font-size: $font-size_m;
+    line-height: $line-height_m;
+  }
+
+  &_white {
+    background-color: $background-color_secondary;
+
+    color: $text-color_primary;
+  }
+}
+
+@media (max-width: $max-width_tablet) {
+  .button {
+    padding: 15px 31px;
+
+    font-size: $font-size_s;
+    line-height: $line-height_s;
+  }
 }
 
 @media (max-width: $max-width_mobile) {

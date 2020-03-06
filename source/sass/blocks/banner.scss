@@ -7,6 +7,8 @@
   width: 100%;
   height: 400px;
 
+  background-color: $background-color_secondary;
+
   .swiper-pagination {
     bottom: 35px;
   }
@@ -67,13 +69,6 @@
   }
 }
 
-.banner__slide-button {
-  padding: 16px 36px;
-
-  font-size: $font-size_m;
-  line-height: $line-height_m;
-}
-
 .banner__slide_main {
   color: $text-color_accent;
 
@@ -81,12 +76,6 @@
 
   p {
     color: $gray_light;
-  }
-
-  .button {
-    background-color: $background-color_secondary;
-
-    color: $text-color_primary
   }
 
   .banner__slide-inner {
@@ -212,13 +201,6 @@
     }
   }
 
-  .banner__slide-button {
-    padding: 15px 31px;
-
-    font-size: $font-size_s;
-    line-height: $line-height_s;
-  }
-
   .banner__slide_main {
     .banner__slide-inner {
 
@@ -330,17 +312,13 @@
       line-height: $line-height_xxl;
     }
 
+    p {
+      max-width: 69%;
+    }
+
     .button {
       margin-top: 26px;
     }
-  }
-
-  .banner__slide-button {
-    padding-top: 13px;
-    padding-bottom: 14px;
-
-    font-size: $font-size_xs;
-    line-height: $line-height_xs;
   }
 
   .banner__slide_main {
