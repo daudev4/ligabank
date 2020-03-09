@@ -9,6 +9,9 @@
 
   a {
     color: inherit;
+
+    @include transition;
+    @include link-effects($background-color_accent, 0.5);
   }
 
   .social {

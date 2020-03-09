@@ -55,7 +55,6 @@
   &[href]:hover,
   &[href]:focus {
     color: $hover-color;
-    transform: scale(1.2);
 
     svg {
       @include transition;

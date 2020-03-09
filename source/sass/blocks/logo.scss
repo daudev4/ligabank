@@ -10,12 +10,15 @@
   flex-shrink: 0;
   margin-right: 8px;
 
+  @include transition;
   fill: $background-color_accent;
   stroke: $background-color_secondary;
 }
 
 .logo__title {
   display: block;
+
+  @include transition;
   fill: $text-color_primary;
 }
 

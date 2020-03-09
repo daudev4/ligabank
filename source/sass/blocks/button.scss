@@ -12,6 +12,18 @@
   background-color: $background-color_accent;
   cursor: pointer;
 
+  &:hover,
+  &:focus {
+    color: $background-color_accent;
+
+    background-color: $background-color_secondary;
+    box-shadow: inset 0 0 0 2px $background-color_accent;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
   &_bigger {
     padding: 16px 36px;
 
@@ -20,9 +32,17 @@
   }
 
   &_white {
+    color: $text-color_primary;
+
     background-color: $background-color_secondary;
 
-    color: $text-color_primary;
+    &:hover,
+    &:focus {
+      color: $background-color_secondary;
+
+      background-color: transparent;
+      box-shadow: inset 0 0 0 2px $background-color_secondary;
+    }
   }
 }
 
