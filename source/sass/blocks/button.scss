@@ -7,8 +7,10 @@
   text-align: center;
 
   @include transition;
-  background-color: $background-color_accent;
+  border: none;
   border-radius: 4px;
+  background-color: $background-color_accent;
+  cursor: pointer;
 
   &_bigger {
     padding: 16px 36px;

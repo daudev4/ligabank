@@ -1,18 +1,27 @@
 .logo {
-  flex-shrink: 0;
+  width: 150px;
   display: flex;
   align-items: flex-end;
+
+  @include font($font-family_primary, $font-size_xxs, 400, $line-height_xxs);
 }
 
 .logo__icon {
+  flex-shrink: 0;
   margin-right: 8px;
 
   fill: $background-color_accent;
   stroke: $background-color_secondary;
 }
 
-.logo__text {
+.logo__title {
+  display: block;
   fill: $text-color_primary;
+}
+
+.logo__caption {
+  display: block;
+  height: 12px;
 }
 
 @media (max-width: $max-width_tablet) {
@@ -22,7 +31,7 @@
     margin-right: 6px;
   }
 
-  .logo__text {
+  .logo__title {
     width: 101px;
     height: 14px;
   }
@@ -35,7 +44,7 @@
     margin-right: 5px;
   }
 
-  .logo__text {
+  .logo__title {
     width: 89px;
     height: 13px;
   }

@@ -26,7 +26,6 @@
 
 .page-footer__item {
   display: flex;
-  align-items: flex-start;
 }
 
 .page-footer__main {
@@ -73,6 +72,7 @@
 
 .page-footer__contacts {
   justify-content: space-between;
+  align-items: flex-start;
   flex-basis: 52.4%;
 }
 

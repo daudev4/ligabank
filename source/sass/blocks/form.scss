@@ -1,0 +1,119 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  @include font($font-family_primary, $font-size_m, 400, $line-height_default);
+  color: $text-color_primary;
+}
+
+.form__item {
+  position: relative;
+  margin-bottom: 23px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  label {
+    font-size: $font-size_s;
+    line-height: $line-height_default;
+    color: rgba($text-color_secondary, 0.93);
+  }
+
+  input {
+    width: 100%;
+    min-height: 60px;
+    margin-top: 4px;
+    padding: 0;
+    padding-left: 24px;
+
+    font-size: $font-size_m;
+    line-height: $line-height_default;
+    color: $text-color_primary;
+
+    @include transition;
+    border: none;
+    box-shadow: inset 0 0 0 1px $text-color_primary;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: $text-color_additional;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 3px $background-color_accent;
+    }
+  }
+}
+
+
+.form__password-toggle {
+  @include button-reset;
+
+  position: absolute;
+  top: 47px;
+  right: 24px;
+
+  width: 22px;
+  height: 22px;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    display: block;
+
+    @include transition;
+    fill: $text-color_primary;
+  }
+
+  #eye_closed {
+    display: none;
+  }
+
+  #eye_opened {
+    display: block;
+  }
+
+  &_closed {
+    #eye_closed {
+      display: block;
+    }
+
+    #eye_opened {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: $background-color_accent;
+    }
+  }
+}
+
+.form__forgot-password {
+  font-size: $font-size_xxs;
+  line-height: $line-height_default;
+  color: $text-color_additional;
+
+  &:hover,
+  &:focus {
+    color: $text-color_primary;
+  }
+}
+
+@media (max-width: $max-width_mobile) {
+  .form__password-toggle {
+    right: 15px;
+  }
+
+  .form__forgot-password {
+    font-size: $font-size_xs;
+  }
+}

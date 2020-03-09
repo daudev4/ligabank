@@ -35,7 +35,6 @@
   @include font($font-family_primary, $font-size_m, 500, $line-height_m);
   color: $text-color_primary;
 
-  @include transition;
   border-radius: 0;
   background-color: $background-color_primary;
   opacity: 0.8;
