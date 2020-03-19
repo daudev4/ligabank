@@ -11,13 +11,16 @@ var sliderBanner = new Swiper('.banner__slider', {
 
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: false,
   },
 
   breakpoints: {
     1024: {
       noSwiping: true,
       noSwipingClass: 'swiper-no-desktop-swiping',
+      pagination: {
+        clickable: true
+      }
     }
   }
 });

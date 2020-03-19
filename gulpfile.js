@@ -105,13 +105,25 @@ gulp.task('clean', function () {
 });
 
 gulp.task('concat-js-main', function () {
-  return gulp.src('source/js/main-*.js')
+  return gulp.src([
+    'source/js/main-slider.js',
+    'source/js/main-tabs.js',
+    'source/js/main-modal.js',
+    'source/js/main-login.js',
+    'source/js/main-*.js'
+    ])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('concat-js-vendor', function () {
-  return gulp.src('source/js/vendor-*.js')
+  return gulp.src([
+    'source/js/vendor-swiper.min.js',
+    'source/js/vendor-imask.min.js',
+    'source/js/vendor-tether.min.js',
+    'source/js/vendor-select.min.js',
+    'source/js/vendor-*.js'
+    ])
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('build/js'));
 });

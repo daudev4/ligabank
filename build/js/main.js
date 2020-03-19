@@ -1,118 +1,5 @@
 'use strict';
 
-(function () {
-  var KEYCODE_ESC = 27;
-  var KEYCODE_SPACE = 32;
-  var KEYCODE_ENTER = 13;
-
-  var modal = document.querySelector('.modal');
-  var modalForm = modal.querySelector('.modal__form');
-  var modalLogin = modal.querySelector('#modal-login');
-  var modalPassword = modal.querySelector('#modal-password');
-  var modalPasswordToggle = modal.querySelector('#modal-password-toggle');
-  var modalOpenButton = document.querySelector('.page-header__user-link_login');
-  var modalCloseButton = modal.querySelector('.modal__close');
-
-  var isStorageSupport = true;
-  var dataStorage = {};
-
-  var openModal = function () {
-    document.body.classList.toggle('no-scroll');
-    modal.classList.toggle('modal_show');
-    modalCloseButton.addEventListener('click', onModalCloseButtonClick);
-    modalForm.addEventListener('submit', onModalFormSubmit);
-    modalPasswordToggle.addEventListener('mousedown', onModalPasswordToggleMouseDown);
-    modalPasswordToggle.addEventListener('keydown', onModalPasswordToggleKeyDown);
-    document.addEventListener('keydown', onModalEscPress);
-  };
-
-  var closeModal = function () {
-    document.body.classList.toggle('no-scroll');
-    modal.classList.toggle('modal_show');
-    modalCloseButton.removeEventListener('click', onModalCloseButtonClick);
-    modalForm.removeEventListener('submit', onModalFormSubmit);
-    modalPasswordToggle.removeEventListener('mousedown', onModalPasswordToggleMouseDown);
-    modalPasswordToggle.removeEventListener('keydown', onModalPasswordToggleKeyDown);
-    document.removeEventListener('keydown', onModalEscPress);
-    document.removeEventListener('mouseup', onModalPasswordToggleMouseUp);
-    document.removeEventListener('keyup', onModalPasswordToggleKeyUp);
-  };
-
-  var onModalCloseButtonClick = function (evt) {
-    evt.preventDefault();
-    closeModal();
-  };
-
-  var onModalEscPress = function (evt) {
-    if (evt.keyCode === KEYCODE_ESC) {
-      evt.preventDefault();
-      closeModal();
-    }
-  };
-
-  var onModalFormSubmit = function () {
-    if (isStorageSupport) {
-      localStorage.setItem('login', modalLogin.value);
-      localStorage.setItem('password', modalPassword.value);
-    }
-  };
-
-  try {
-    dataStorage.login = localStorage.getItem('login');
-    dataStorage.password = localStorage.getItem('password');
-  } catch (err) {
-    isStorageSupport = false;
-  }
-
-  modalOpenButton.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    openModal();
-
-    if (dataStorage.login) {
-      modalLogin.value = dataStorage.login;
-      modalPassword.value = dataStorage.password;
-      modalPassword.focus();
-    } else {
-      modalLogin.focus();
-    }
-  });
-
-  var showPassword = function () {
-    modalPassword.type = 'text';
-    modalPasswordToggle.classList.remove('form__password-toggle_closed');
-
-    document.addEventListener('mouseup', onModalPasswordToggleMouseUp);
-    document.addEventListener('keyup', onModalPasswordToggleKeyUp);
-  };
-
-  var hidePassword = function () {
-    modalPassword.type = 'password';
-    modalPasswordToggle.classList.add('form__password-toggle_closed');
-  };
-
-  var onModalPasswordToggleMouseDown = function () {
-    showPassword();
-  };
-
-  var onModalPasswordToggleMouseUp = function () {
-    hidePassword();
-  };
-
-  var onModalPasswordToggleKeyDown = function (evt) {
-    if (evt.keyCode === KEYCODE_SPACE || evt.keyCode === KEYCODE_ENTER) {
-      showPassword();
-    }
-  };
-
-  var onModalPasswordToggleKeyUp = function (evt) {
-    if (evt.keyCode === KEYCODE_SPACE || evt.keyCode === KEYCODE_ENTER) {
-      hidePassword();
-    }
-  };
-})();
-
-'use strict';
-
 var sliderBanner = new Swiper('.banner__slider', {
   slidesPerView: 'auto',
   centeredSlides: true,
@@ -124,13 +11,16 @@ var sliderBanner = new Swiper('.banner__slider', {
 
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: false,
   },
 
   breakpoints: {
     1024: {
       noSwiping: true,
       noSwipingClass: 'swiper-no-desktop-swiping',
+      pagination: {
+        clickable: true
+      }
     }
   }
 });
@@ -199,3 +89,244 @@ Tabs.prototype.updateControls = function (index) {
 };
 
 var sliderServices = new Tabs();
+
+'use strict';
+
+(function () {
+  var KEYCODE_ESC = 27;
+
+  var Modal = function (rootElement, openButtonElement) {
+    this.root = rootElement;
+    this.openButton = openButtonElement;
+    this.closeButton = this.root.querySelector('.modal__close');
+    this.activateOpenButton();
+  };
+
+  Modal.prototype.open = function () {
+    document.body.classList.toggle('no-scroll');
+    document.addEventListener('keydown', this);
+    this.root.classList.toggle('modal_hidden');
+    this.closeButton.addEventListener('click', this);
+  };
+
+  Modal.prototype.close = function () {
+    document.body.classList.toggle('no-scroll');
+    document.removeEventListener('keydown', this);
+    this.root.classList.toggle('modal_hidden');
+    this.closeButton.removeEventListener('click', this);
+  };
+
+  Modal.prototype.handleEvent = function (evt) {
+    switch (evt.type) {
+      case 'click':
+        this.onCloseButtonClick(evt);
+        break;
+      case 'keydown': {
+        this.onModalEscPress(evt);
+      }
+    }
+  };
+
+  Modal.prototype.activateOpenButton = function () {
+    var modal = this;
+
+    modal.openButton.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      modal.open();
+    });
+  };
+
+  Modal.prototype.onCloseButtonClick = function (evt) {
+    evt.preventDefault();
+    this.close();
+  };
+
+  Modal.prototype.onModalEscPress = function (evt) {
+    if (evt.keyCode === KEYCODE_ESC) {
+      evt.preventDefault();
+      this.close();
+    }
+  };
+
+  window.Modal = Modal;
+})();
+
+'use strict';
+
+(function () {
+  var KEYCODE_SPACE = 32;
+  var KEYCODE_ENTER = 13;
+
+  var login = document.querySelector('.login');
+  var loginForm = login.querySelector('.login__form');
+  var loginUsername = loginForm.querySelector('#login-username');
+  var loginPassword = loginForm.querySelector('#login-password');
+  var loginPasswordToggle = loginForm.querySelector('#login-password-toggle');
+  var loginOpenButton = document.querySelector('.page-header__user-link_login');
+  var loginModal = new window.Modal(login, loginOpenButton);
+
+  var isStorageSupport = true;
+  var dataStorage = {};
+
+  loginModal.open = function () {
+    activateLogin();
+    window.Modal.prototype.open.call(this);
+  };
+
+  loginModal.close = function () {
+    deactivateLogin();
+    window.Modal.prototype.close.call(this);
+  };
+
+  var activateLogin = function () {
+    loginForm.addEventListener('submit', onLoginFormSubmit);
+    loginPasswordToggle.addEventListener('mousedown', onLoginPasswordToggleMouseDown);
+    loginPasswordToggle.addEventListener('keydown', onLoginPasswordToggleKeyDown);
+    loginPasswordToggle.addEventListener('touchstart', onLoginPasswordToggleTouchStart);
+  };
+
+  var deactivateLogin = function () {
+    loginForm.removeEventListener('submit', onLoginFormSubmit);
+    loginPasswordToggle.removeEventListener('mousedown', onLoginPasswordToggleMouseDown);
+    loginPasswordToggle.removeEventListener('keydown', onLoginPasswordToggleKeyDown);
+    loginPasswordToggle.removeEventListener('touchstart', onLoginPasswordToggleTouchStart);
+    document.removeEventListener('mouseup', onLoginPasswordToggleMouseUp);
+    document.removeEventListener('keyup', onLoginPasswordToggleKeyUp);
+    document.removeEventListener('touchend', onLoginPasswordToggleTouchEnd);
+  };
+
+  var onLoginFormSubmit = function () {
+    if (isStorageSupport) {
+      localStorage.setItem('username', loginUsername.value);
+      localStorage.setItem('password', loginPassword.value);
+    }
+  };
+
+  try {
+    dataStorage.username = localStorage.getItem('username');
+    dataStorage.password = localStorage.getItem('password');
+  } catch (err) {
+    isStorageSupport = false;
+  }
+
+  loginOpenButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+
+    if (dataStorage.username) {
+      loginUsername.value = dataStorage.username;
+      loginPassword.value = dataStorage.password;
+      loginPassword.focus();
+    } else {
+      loginUsername.focus();
+    }
+  });
+
+  var showPassword = function () {
+    loginPassword.type = 'text';
+    loginPasswordToggle.classList.remove('login__password-toggle_closed');
+
+    document.addEventListener('mouseup', onLoginPasswordToggleMouseUp);
+    document.addEventListener('keyup', onLoginPasswordToggleKeyUp);
+    document.addEventListener('touchend', onLoginPasswordToggleTouchEnd);
+  };
+
+  var hidePassword = function () {
+    loginPassword.type = 'password';
+    loginPasswordToggle.classList.add('login__password-toggle_closed');
+  };
+
+  var onLoginPasswordToggleMouseUp = function () {
+    hidePassword();
+  };
+
+  var onLoginPasswordToggleMouseDown = function () {
+    showPassword();
+  };
+
+  var onLoginPasswordToggleTouchEnd = function () {
+    hidePassword();
+  };
+
+  var onLoginPasswordToggleTouchStart = function () {
+    showPassword();
+  };
+
+  var onLoginPasswordToggleKeyUp = function (evt) {
+    if (evt.keyCode === KEYCODE_SPACE || evt.keyCode === KEYCODE_ENTER) {
+      hidePassword();
+    }
+  };
+
+  var onLoginPasswordToggleKeyDown = function (evt) {
+    if (evt.keyCode === KEYCODE_SPACE || evt.keyCode === KEYCODE_ENTER) {
+      showPassword();
+    }
+  };
+})();
+
+/*eslint-disable*/
+
+'use strict';
+
+(function () {
+  var maskedInputs = document.querySelectorAll('input[data-unit]');
+
+  var setMask = function () {
+    maskedInputs.forEach(function (input) {
+      var maskUnit = input.getAttribute('data-unit');
+      var maskOption;
+
+      switch (maskUnit) {
+        case "currency":
+          maskOption = {
+            mask: 'num рублей',
+            lazy: false,
+
+            blocks: {
+              num: {
+                mask: Number,
+                thousandsSeparator: ' ',
+              }
+            }
+          }
+          break;
+        case "period":
+          maskOption = {
+            mask: 'num лет',
+            lazy: false,
+
+            blocks: {
+              num: {
+                mask: Number,
+                thousandsSeparator: ' ',
+              }
+            }
+          }
+          break;
+        case "numero-symbol":
+          maskOption = {
+            mask: '№ num',
+            lazy: false,
+
+            blocks: {
+              num: {
+                mask: Number,
+                commit: function (value, masked) {
+                  masked._value = value.padStart(4, '0');
+                }
+              }
+            }
+          }
+      };
+      var mask = IMask(input, maskOption);
+    });
+  };
+
+  setMask();
+})();
+
+'use strict';
+
+var colorSelect = new CustomSelect({
+  elem: 'credit-purpose'
+});

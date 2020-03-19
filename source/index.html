@@ -36,12 +36,12 @@
         </button>
         <ul class="page-header__nav-list">
           <li class="page-header__nav-item">
-            <a href="#">
+            <a href="#services">
               Услуги
             </a>
           </li>
           <li class="page-header__nav-item">
-            <a href="#">
+            <a href="#calculator">
               Рассчитать кредит
             </a>
           </li>
@@ -88,7 +88,7 @@
               <p>
                 Кредиты на любой случай
               </p>
-              <a class="button button_bigger button_white" href="#">
+              <a class="button button_bigger button_white" href="#calculator">
                 Рассчитать кредит
               </a>
             </div>
@@ -121,46 +121,44 @@
         <div class="swiper-pagination"></div>
       </div>
     </section>
-    <section class="services">
+    <section class="services" id="services">
       <h2 class="visually-hidden">
         Услуги Лига Банка
       </h2>
       <div class="services__inner">
-        <nav class="services__tabs">
-          <ul class="services__tabs-list">
-            <li class="services__tabs-item services__tabs-item_active">
+        <nav class="services__tabs-list">
+            <button class="services__tabs-item services__tabs-item_active">
               <svg width="34" height="33">
                 <use xlink:href="#icon-deposit"></use>
               </svg>
               <span>
                 Вклады
               </span>
-            </li>
-            <li class="services__tabs-item">
+            </button>
+            <button class="services__tabs-item">
               <svg width="34" height="30">
                 <use xlink:href="#icon-credit"></use>
               </svg>
               <span>
                 Кредиты
               </span>
-            </li>
-            <li class="services__tabs-item">
+            </button>
+            <button class="services__tabs-item">
               <svg width="28" height="34">
                 <use xlink:href="#icon-insurance"></use>
               </svg>
               <span>
                 Страхование
               </span>
-            </li>
-            <li class="services__tabs-item">
+            </button>
+            <button class="services__tabs-item">
               <svg width="20" height="34">
                 <use xlink:href="#icon-smartphone"></use>
               </svg>
               <span>
                 Онлайн-сервисы
               </span>
-            </li>
-          </ul>
+            </button>
         </nav>
         <div class="services__slider swiper-container swiper-no-desktop-swiping">
           <ul class="services__slider-list swiper-wrapper">
@@ -222,7 +220,7 @@
                 <p>
                   Рассчитайте ежемесячный платеж
                   и ставку по кредиту воспользовавшись
-                  нашим <a href="#">кредитным калькулятором</a>
+                  нашим <a href="#calculator">кредитным калькулятором</a>
                 </p>
               </div>
               <div class="services__slide-image">
@@ -323,6 +321,200 @@
         </div>
       </div>
     </section>
+    <section class="calculator" id="calculator">
+      <div class="calculator__inner">
+        <h2>
+          Кредитный калькулятор
+        </h2>
+        <form class="calculator__form form" action="https://echo.htmlacademy.ru" method="post">
+          <div class="calculator__setting">
+            <fieldset class="calculator__step calculator__step_1">
+              <legend>
+                Шаг 1. Цель кредита
+              </legend>
+              <p class="calculator__form-item calculator__form-item_no-lable form__item">
+                <select name="credit-purpose" id="credit-purpose" required>
+                  <option selected disabled hidden>Выберите цель кредита</option>
+                  <option value="mortgage">Ипотечное кредитование</option>
+                  <option value="auto">Автомобильное кредитование</option>
+                  <option value="consumer">Потребительский кредит</option>
+                </select>
+              </p>
+            </fieldset>
+            <fieldset class="calculator__step calculator__step_2">
+              <legend>
+                Шаг 2. Введите параметры кредита
+              </legend>
+              <p class="calculator__form-item form__item">
+                <label for="credit-amount">
+                  Стоимость недвижимости
+                </label>
+                <span class="calculator__input-number input-number">
+                  <input id="credit-amount" type="text" name="credit-amount" value="2000000" data-unit="currency" required>
+                  <button class="input-number__button input-number__button_down" type="button">
+                    <span class="visually-hidden">
+                      Уменьшить сумму на <span class="credit-amount-step">100 000</span> рублей
+                    </span>
+                  </button>
+                  <button class="input-number__button input-number__button_up" type="button">
+                    <span class="visually-hidden">
+                      Увеличить сумму на <span class="credit-amount-step">100 000</span> рублей
+                    </span>
+                  </button>
+                  <span class="input-number__caption">
+                    От <span class="credit-amount-min">1 200 000</span>
+                    до <span class="credit-amount-max">2 500 000</span> рублей
+                  </span>
+                </span>
+              </p>
+              <p class="calculator__form-item form__item">
+                <label for="credit-initial">
+                  Первоначальный взнос
+                </label>
+                <span class="calculator__input-number input-number">
+                  <input id="credit-initial" type="text" name="credit-initial" value="200000" data-unit="currency" required>
+                </span>
+                <span class="calculator__input-range input-range">
+                  <input type="range" min="10" max="100" value="10" step="5">
+                  <span class="input-range__value">
+                    10%
+                  </span>
+                </span>
+              </p>
+              <p class="calculator__form-item form__item">
+                <label for="credit-term">
+                  Срок кредитования
+                </label>
+                <span class="calculator__input-number input-number">
+                  <input id="credit-term" type="text" name="credit-term" value="5" data-unit="period" required>
+                </span>
+                <span class="calculator__input-range input-range">
+                  <input type="range" min="5" max="30" value="10" step="1">
+                  <span class="input-range__min">
+                    5 лет
+                  </span>
+                  <span class="input-range__max">
+                    30 лет
+                  </span>
+                </span>
+              </p>
+              <p class="calculator__form-checkbox">
+                <label class="calculator__input-check input-check">
+                  <input class="visually-hidden" type="checkbox" name="credit-checkbox" checked>
+                  <span class="input-check__box"></span>
+                  Использовать материнский капитал
+                </label>
+              </p>
+            </fieldset>
+            <div class="calculator__offer">
+              <h3>
+                Наше предложение
+              </h3>
+              <ul class="calculator__offer-list">
+                <li class="calculator__offer-item">
+                  <h4>
+                    Сумма ипотеки
+                  </h4>
+                  <b>
+                    1 330 000 рублей
+                  </b>
+                </li>
+                <li class="calculator__offer-item">
+                  <h4>
+                    Процентная ставка
+                  </h4>
+                  <b>
+                    9,40%
+                  </b>
+                </li>
+                <li class="calculator__offer-item">
+                  <h4>
+                    Ежемесячный платеж
+                  </h4>
+                  <b>
+                    27 868 рублей
+                  </b>
+                </li>
+                <li class="calculator__offer-item">
+                  <h4>
+                    Необходимый доход
+                  </h4>
+                  <b>
+                    61 929 рублей
+                  </b>
+                </li>
+              </ul>
+              <button class="calculator__offer-button button" type="button">
+                Оформить заявку
+              </button>
+            </div>
+          </div>
+          <div class="calculator__application application">
+            <fieldset class="calculator__step calculator__step_3 application__body">
+              <legend>
+                Шаг 3. Оформление заявки
+              </legend>
+              <ul class="application__list">
+                <li class="application__list-item form__item">
+                  <label for="application-number">
+                    Номер заявки
+                  </label>
+                  <input id="application-number" type="text" name="application-number" value="10" data-unit="numero-symbol" readonly>
+                </li>
+                <li class="application__list-item form__item">
+                  <label for="application-purpose">
+                    Цель кредита
+                  </label>
+                  <input id="application-purpose" type="text" name="application-purpose" value="Ипотека" readonly>
+                </li>
+                <li class="application__list-item form__item">
+                  <label for="application-amount">
+                    Стоимость недвижимости
+                  </label>
+                  <input id="application-amount" type="text" name="application-amount" value="2000000" data-unit="currency" readonly>
+                </li>
+                <li class="application__list-item form__item">
+                  <label for="application-initial">
+                    Первоначальный взнос
+                  </label>
+                  <input id="application-initial" type="text" name="application-initial" value="200000" data-unit="currency" readonly>
+                </li>
+                <li class="application__list-item form__item">
+                  <label for="application-term">
+                    Срок кредитования
+                  </label>
+                  <input id="application-term" type="text" name="application-term" value="5" data-unit="period" readonly>
+                </li>
+              </ul>
+              <div class="application__form">
+                <p class="application__form-item form__item">
+                  <label class="visually-hidden" for="application-name">
+                    ФИО
+                  </label>
+                  <input id="application-name" type="text" name="application-name" autocomplete="name" placeholder="ФИО" required>
+                </p>
+                <p class="application__form-item form__item">
+                  <label class="visually-hidden" for="application-phone">
+                    Телефон
+                  </label>
+                  <input id="application-phone" type="text" name="application-phone" autocomplete="tel" placeholder="Телефон" required>
+                </p>
+                <p class="application__form-item form__item">
+                  <label class="visually-hidden" for="application-email">
+                    E-mail
+                  </label>
+                  <input id="application-email" type="text" name="application-email" autocomplete="email" placeholder="E-mail"
+                        pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                </p>
+              </div>
+              <button class="calculator__submit application__button button" type="submit">
+                Отправить
+              </button>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="page-footer">
@@ -404,7 +596,7 @@
           <li class="social__item">
             <a class="social__item-link" href="#">
               <svg width="9" height="16">
-                <use xlink:href="#icon-social_facebook">
+                <use xlink:href="#icon-social_facebook"></use>
               </svg>
               <span class="visually-hidden">
                 Мы в Facebook
@@ -414,7 +606,7 @@
           <li class="social__item">
             <a class="social__item-link" href="#">
               <svg width="16" height="16">
-                <use xlink:href="#icon-social_instagram">
+                <use xlink:href="#icon-social_instagram"></use>
               </svg>
               <span class="visually-hidden">
                 Мы в Instagram
@@ -424,7 +616,7 @@
           <li class="social__item">
             <a class="social__item-link" href="#">
               <svg width="16" height="13">
-                <use xlink:href="#icon-social_twitter">
+                <use xlink:href="#icon-social_twitter"></use>
               </svg>
               <span class="visually-hidden">
                 Мы в Twitter
@@ -434,7 +626,7 @@
           <li class="social__item">
             <a class="social__item-link" href="#">
               <svg width="16" height="13">
-                <use xlink:href="#icon-social_youtube">
+                <use xlink:href="#icon-social_youtube"></use>
               </svg>
               <span class="visually-hidden">
                 Мы в Youtube
@@ -446,12 +638,12 @@
     </div>
   </footer>
 
-  <section class="modal">
+  <section class="login modal modal_hidden">
     <h2 class="visually-hidden">
       Вход в Интернет-банк
     </h2>
-    <div class="modal__inner">
-      <div class="modal__logo logo" href="#">
+    <div class="login__inner modal__inner">
+      <div class="login__logo logo">
         <svg class="logo__icon" width="30" height="27">
           <use xlink:href="#icon-logo"></use>
         </svg>
@@ -475,34 +667,36 @@
           <use xlink:href="#icon-cross"></use>
         </svg>
       </button>
-      <form class="modal__form form" action="https://echo.htmlacademy.ru" method="post">
-        <div class="form__item">
-          <label for="modal-login">
+      <form class="login__form form" action="https://echo.htmlacademy.ru" method="post">
+        <p class="login__form-item form__item">
+          <label for="login-username">
             Логин
           </label>
-          <input id="modal-login" type="text" name="modal-login" autocomplete="login" required>
-        </div>
-      <div class="form__item">
-          <label for="modal-password">
+          <input id="login-username" type="text" name="login-username" autocomplete="username" required>
+        </p>
+        <p class="login__form-item form__item">
+          <label for="login-password">
             Пароль
           </label>
-          <input id="modal-password" type="password" name="modal-password" autocomplete="current-password" required>
-          <button class="form__password-toggle form__password-toggle_closed" id="modal-password-toggle" type="button">
-            <svg id="eye_closed" width="22" height="12">
-              <use xlink:href="#icon-eye_closed"></use>
-            </svg>
-            <svg id="eye_opened" width="22" height="22">
-              <use xlink:href="#icon-eye_opened"></use>
-            </svg>
-            <span class="visually-hidden">
-              Показать пароль
-            </span>
-          </button>
-      </div>
-        <a class="form__forgot-password" href="#">
+          <span class="login__password-input">
+            <input id="login-password" type="password" name="login-password" autocomplete="current-password" required>
+            <button class="login__password-toggle login__password-toggle_closed" id="login-password-toggle" type="button">
+              <svg id="eye_closed" width="22" height="12">
+                <use xlink:href="#icon-eye_closed"></use>
+              </svg>
+              <svg id="eye_opened" width="22" height="22">
+                <use xlink:href="#icon-eye_opened"></use>
+              </svg>
+              <span class="visually-hidden">
+                Показать пароль (Зажмите и держите клавишу пробел, чтобы пароль был виден)
+              </span>
+            </button>
+          </span>
+        </p>
+        <a class="login__forgot-password" href="#">
           Забыли пароль?
         </a>
-        <button class="form__submit button button_bigger" type="submit">
+        <button class="login__submit form__submit button button_bigger" type="submit">
           Войти
         </button>
       </form>

@@ -1,0 +1,51 @@
+.input-check {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  &__box {
+    position: relative;
+
+    flex-shrink: 0;
+    order: -1;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+
+    @include transition;
+
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px $background-color_accent;
+  }
+
+  input[type="checkbox"]:checked ~ .input-check__box {
+    background-color: $background-color_accent;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 45%;
+      left: 50%;
+
+      width: 5.5px;
+      height: 4px;
+
+      border-width: 0;
+      border-style: solid;
+      border-color: $background-color_secondary;
+      border-bottom-width: 1px;
+      border-left-width: 1px;
+
+      transform:  translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: $max-width_tablet) {
+  .input-check {
+    font-size: $font-size_xs;
+  }
+}
