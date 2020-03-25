@@ -25,6 +25,15 @@
   background-color: transparent;
   outline: none;
 
+  &:focus,
+  &:hover {
+    color: $background-color_accent;
+
+    &::after {
+      border-color: transparent transparent $background-color_accent $background-color_accent;
+    }
+  }
+
   &::placeholder {
     color: $text-color_additional;
   }
@@ -40,6 +49,7 @@
     width: 13px;
     height: 13px;
 
+    @include transition;
     border-width: 2px;
     border-style: solid;
     border-color:  transparent transparent $text-color_primary $text-color_primary;

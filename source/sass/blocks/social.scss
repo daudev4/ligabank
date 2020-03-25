@@ -13,6 +13,10 @@
   &:last-of-type {
     margin-right: 0;
   }
+
+  svg {
+    fill: $text-color_primary;
+  }
 }
 
 @media (max-width: $max-width_tablet) {

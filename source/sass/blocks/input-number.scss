@@ -1,6 +1,14 @@
 .input-number {
   display: block;
   position: relative;
+
+  &.input-number_invalid {
+    input[type="text"] {
+      color: $error-color;
+
+      box-shadow: inset 0 0 0 3px $error-color;
+    }
+  }
 }
 
 .input-number__button {

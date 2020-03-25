@@ -30,11 +30,15 @@
   flex-wrap: wrap;
   align-content: space-between;
   max-height: 750px;
-  margin-bottom: 66px;
 }
 
 .calculator__application {
+  margin-top: 66px;
   align-self: center;
+
+  &_hidden {
+    display: none;
+  }
 }
 
 .calculator__step {
@@ -53,16 +57,22 @@
     line-height: $line-height_default;
   }
 
-  &_1 {
-    margin-bottom: 33px;
-
+  &_one {
     legend {
       margin-bottom: 23px;
     }
   }
 
-  &_3 {
+  &_two {
+    margin-top: 33px;
+  }
+
+  &_three {
     width: 100%;
+  }
+
+  &_hidden {
+    display: none;
   }
 }
 
@@ -79,8 +89,7 @@
     text-align: center;
   }
 
-  select,
-  .select-target {
+  select {
     margin-top: 0;
     font-weight: 500;
     font-size: $font-size_s;
@@ -116,6 +125,11 @@
   @include font($font-family_primary, $font-size_xl, 500, $line-height_default);
 
   background-color: $background-color_secondary;
+  border-radius: 4px;
+
+  &_hidden {
+    display: none;
+  }
 
   h3 {
     margin: 0;
@@ -165,6 +179,15 @@
   width: 100%;
 }
 
+
+.calculator__modal-message {
+  h3, p {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
 @media (max-width: $max-width_tablet) {
   .calculator {
     padding-top: 68px;
@@ -182,7 +205,10 @@
 
   .calculator__setting {
     max-height: none;
-    margin-bottom: 55px;
+  }
+
+  .calculator__application {
+    margin-top: 55px;
   }
 
   .calculator__step {
@@ -194,12 +220,14 @@
       font-size: $font-size_m;
     }
 
-    &_1 {
-      margin-bottom: 35px;
-
+    &_one {
       legend {
         margin-bottom: 19px;
       }
+    }
+
+    &_two {
+      margin-top: 35px;
     }
   }
 
@@ -242,8 +270,8 @@
     @include container_mobile;
   }
 
-  .calculator__setting {
-    margin-bottom: 42px;
+  .calculator__application {
+    margin-top: 42px;
   }
 
   .calculator__step {
@@ -253,12 +281,14 @@
       font-size: $font-size_s;
     }
 
-    &_1 {
-      margin-bottom: 24px;
-
+    &_one {
       legend {
         margin-bottom: 15px;
       }
+    }
+
+    &_top {
+      margin-top: 24px;
     }
   }
 
@@ -302,5 +332,11 @@
   .calculator__offer-button {
     padding-top: 18px;
     padding-bottom: 17px;
+  }
+
+  .calculator__modal-message {
+    p {
+      max-width: 95%;
+    }
   }
 }

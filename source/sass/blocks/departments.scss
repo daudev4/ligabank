@@ -1,0 +1,56 @@
+.departments {
+  padding-top: 97px;
+  padding-bottom: 110px;
+
+  @include font($font-family_primary, $font-size_xs, 400, $line-height_default);
+  color: $text-color_primary;
+
+  background-color: $background-color_primary;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 56px;
+    font-size: 41px;
+    line-height: $line-height_default;
+  }
+}
+
+.departments__inner {
+  @include container_desktop;
+}
+
+@media (max-width: $max-width_tablet) {
+  .departments {
+    padding-top: 69px;
+    padding-bottom: 80px;
+  }
+
+  .departments__inner {
+    @include container_tablet;
+
+    h2 {
+      margin-bottom: 33px;
+
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: $max-width_mobile) {
+  .departments {
+    padding-top: 53px;
+    padding-bottom: 60px;
+  }
+
+  .departments__inner {
+    @include container_mobile;
+    padding: 0;
+
+    h2 {
+      margin-bottom: 27px;
+      padding: 0 15px;
+
+      font-size: $font-size_xl;
+    }
+  }
+}

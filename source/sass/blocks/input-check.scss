@@ -5,6 +5,12 @@
 
   cursor: pointer;
 
+  @include transition;
+
+  &:focus-within {
+    color: $background-color_accent;
+  }
+
   &__box {
     position: relative;
 

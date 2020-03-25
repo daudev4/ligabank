@@ -3,11 +3,18 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Лига Банк &mdash; Кредиты на любой случай</title>
   <meta name="description" content="Лига Банк выдает кредиты под любые цели">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preload" href="fonts/roboto_400.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto_400.woff" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto_500.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto_500.woff" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto_700.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto_700.woff" as="font" crossorigin="anonymous">
 </head>
 
 <body>
@@ -111,7 +118,7 @@
               <p>
                 Всегда рядом
               </p>
-              <a class="button button_bigger" href="#">
+              <a class="button button_bigger" href="#departments">
                 Найти отделение
               </a>
             </div>
@@ -328,90 +335,90 @@
         </h2>
         <form class="calculator__form form" action="https://echo.htmlacademy.ru" method="post">
           <div class="calculator__setting">
-            <fieldset class="calculator__step calculator__step_1">
+            <fieldset class="calculator__step calculator__step_one">
               <legend>
                 Шаг 1. Цель кредита
               </legend>
               <p class="calculator__form-item calculator__form-item_no-lable form__item">
-                <select name="credit-purpose" id="credit-purpose" required>
-                  <option selected disabled hidden>Выберите цель кредита</option>
+                <select name="calculator-purpose" id="calculator-purpose" required>
+                  <option value="none" selected disabled hidden>Выберите цель кредита</option>
                   <option value="mortgage">Ипотечное кредитование</option>
                   <option value="auto">Автомобильное кредитование</option>
                   <option value="consumer">Потребительский кредит</option>
                 </select>
               </p>
             </fieldset>
-            <fieldset class="calculator__step calculator__step_2">
+            <fieldset class="calculator__step calculator__step_two calculator__step_hidden">
               <legend>
                 Шаг 2. Введите параметры кредита
               </legend>
               <p class="calculator__form-item form__item">
-                <label for="credit-amount">
+                <label for="calculator-amount">
                   Стоимость недвижимости
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="credit-amount" type="text" name="credit-amount" value="2000000" data-unit="currency" required>
+                  <input id="calculator-amount" type="text" name="calculator-amount" value="2000000" data-min="1200000" data-max="25000000" data-step="100000" data-unit="currency" required>
                   <button class="input-number__button input-number__button_down" type="button">
                     <span class="visually-hidden">
-                      Уменьшить сумму на <span class="credit-amount-step">100 000</span> рублей
+                      Уменьшить сумму
                     </span>
                   </button>
                   <button class="input-number__button input-number__button_up" type="button">
                     <span class="visually-hidden">
-                      Увеличить сумму на <span class="credit-amount-step">100 000</span> рублей
+                      Увеличить сумму
                     </span>
                   </button>
                   <span class="input-number__caption">
-                    От <span class="credit-amount-min">1 200 000</span>
-                    до <span class="credit-amount-max">2 500 000</span> рублей
+                    От <output name="calculator-amount-min">1 200 000</output>
+                    до <output name="calculator-amount-max">2 500 000</output> рублей
                   </span>
                 </span>
               </p>
               <p class="calculator__form-item form__item">
-                <label for="credit-initial">
+                <label for="calculator-initial">
                   Первоначальный взнос
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="credit-initial" type="text" name="credit-initial" value="200000" data-unit="currency" required>
+                  <input id="calculator-initial" type="text" name="calculator-initial" value="200000" data-unit="currency" required>
                 </span>
                 <span class="calculator__input-range input-range">
                   <input type="range" min="10" max="100" value="10" step="5">
                   <span class="input-range__value">
-                    10%
+                    <output name="calculator-initial-value">10</output>%
                   </span>
                 </span>
               </p>
               <p class="calculator__form-item form__item">
-                <label for="credit-term">
+                <label for="calculator-term">
                   Срок кредитования
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="credit-term" type="text" name="credit-term" value="5" data-unit="period" required>
+                  <input id="calculator-term" type="text" name="calculator-term" value="5" data-unit="period" required>
                 </span>
                 <span class="calculator__input-range input-range">
-                  <input type="range" min="5" max="30" value="10" step="1">
-                  <span class="input-range__min">
-                    5 лет
-                  </span>
+                  <input name="calculator-term-range" type="range" min="5" max="30" value="5" step="1">
                   <span class="input-range__max">
-                    30 лет
+                    <output name="calculator-term-min">5</output> лет
+                  </span>
+                  <span class="input-range__min">
+                    <output name="calculator-term-max">30</output> лет
                   </span>
                 </span>
               </p>
               <p class="calculator__form-checkbox">
                 <label class="calculator__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="credit-checkbox" checked>
+                  <input class="visually-hidden" type="checkbox" name="calculator-checkbox" checked>
                   <span class="input-check__box"></span>
                   Использовать материнский капитал
                 </label>
               </p>
             </fieldset>
-            <div class="calculator__offer">
+            <div class="calculator__offer calculator__offer_hidden">
               <h3>
                 Наше предложение
               </h3>
               <ul class="calculator__offer-list">
-                <li class="calculator__offer-item">
+                <li class="calculator__offer-item" id="offer-amount">
                   <h4>
                     Сумма ипотеки
                   </h4>
@@ -419,7 +426,7 @@
                     1 330 000 рублей
                   </b>
                 </li>
-                <li class="calculator__offer-item">
+                <li class="calculator__offer-item" id="offer-interest">
                   <h4>
                     Процентная ставка
                   </h4>
@@ -427,7 +434,7 @@
                     9,40%
                   </b>
                 </li>
-                <li class="calculator__offer-item">
+                <li class="calculator__offer-item" id="offer-annuity">
                   <h4>
                     Ежемесячный платеж
                   </h4>
@@ -435,7 +442,7 @@
                     27 868 рублей
                   </b>
                 </li>
-                <li class="calculator__offer-item">
+                <li class="calculator__offer-item" id="offer-income">
                   <h4>
                     Необходимый доход
                   </h4>
@@ -449,8 +456,8 @@
               </button>
             </div>
           </div>
-          <div class="calculator__application application">
-            <fieldset class="calculator__step calculator__step_3 application__body">
+          <div class="calculator__application calculator__application_hidden application">
+            <fieldset class="calculator__step calculator__step_three application__body">
               <legend>
                 Шаг 3. Оформление заявки
               </legend>
@@ -459,31 +466,31 @@
                   <label for="application-number">
                     Номер заявки
                   </label>
-                  <input id="application-number" type="text" name="application-number" value="10" data-unit="numero-symbol" readonly>
+                  <input id="application-number" type="text" name="application-number" value="10" data-unit="numero-symbol" disabled>
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-purpose">
                     Цель кредита
                   </label>
-                  <input id="application-purpose" type="text" name="application-purpose" value="Ипотека" readonly>
+                  <input id="application-purpose" type="text" name="application-purpose" value="Ипотека" disabled>
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-amount">
                     Стоимость недвижимости
                   </label>
-                  <input id="application-amount" type="text" name="application-amount" value="2000000" data-unit="currency" readonly>
+                  <input id="application-amount" type="text" name="application-amount" value="2000000" data-unit="currency" disabled>
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-initial">
                     Первоначальный взнос
                   </label>
-                  <input id="application-initial" type="text" name="application-initial" value="200000" data-unit="currency" readonly>
+                  <input id="application-initial" type="text" name="application-initial" value="200000" data-unit="currency" disabled>
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-term">
                     Срок кредитования
                   </label>
-                  <input id="application-term" type="text" name="application-term" value="5" data-unit="period" readonly>
+                  <input id="application-term" type="text" name="application-term" value="5" data-unit="period" disabled>
                 </li>
               </ul>
               <div class="application__form">
@@ -512,7 +519,62 @@
               </button>
             </fieldset>
           </div>
+          <div class="calculator__modal modal modal_hidden">
+            <div class="calculator__modal-message message modal__inner">
+              <button class="modal__close" type="button">
+                <span class="visually-hidden">
+                  Закрыть окно
+                </span>
+                <svg width="18" height="18">
+                  <use xlink:href="#icon-cross"></use>
+                </svg>
+              </button>
+              <h3>
+                Спасибо за обращение в наш банк.
+              </h3>
+              <p>
+                Наш менеджер скоро свяжется с вами
+                по указанному номеру телефона.
+              </p>
+            </div>
+          </div>
         </form>
+      </div>
+    </section>
+    <section class="departments" id="departments">
+      <div class="departments__inner">
+        <h2>
+          Отделения Лига Банка
+        </h2>
+        <div class="departments__map map">
+          <header class="map__filters">
+            <ul class="map__filters-list">
+              <li class="map__filters-item">
+                <label class="map__input-check input-check">
+                  <input class="visually-hidden" type="checkbox" name="map-russia-checkbox" checked>
+                  <span class="input-check__box"></span>
+                  Россия
+                </label>
+              </li>
+              <li class="map__filters-item">
+                <label class="map__input-check input-check">
+                  <input class="visually-hidden" type="checkbox" name="map-cis-checkbox" checked>
+                  <span class="input-check__box"></span>
+                  СНГ
+                </label>
+              </li>
+              <li class="map__filters-item">
+                <label class="map__input-check input-check">
+                  <input class="visually-hidden" type="checkbox" name="map-europe-checkbox">
+                  <span class="input-check__box"></span>
+                  Европа
+                </label>
+              </li>
+            </ul>
+          </header>
+          <div class="map__body" id="map" style="width: 100%;height:462px">
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -703,7 +765,25 @@
     </div>
   </section>
 
+  <template id="message">
+    <div class="calculator__invalid-message message">
+      <h3>
+        Наш банк не выдаёт
+        <span class="messsage__credit-name">ипотечные кредиты</span>
+        меньше
+        <span class="message__credit-amount-min">
+          200 000
+        </span>
+        рублей.
+      </h3>
+      <p>
+        Попробуйте использовать другие параметры для расчёта.
+      </p>
+    </div>
+  </template>
+
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 </html>

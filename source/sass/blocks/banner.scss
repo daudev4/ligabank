@@ -67,6 +67,12 @@
   .button {
     margin-top: 34px;
   }
+
+  &:not(.swiper-slide-active) {
+    .button {
+      display: none;
+    }
+  }
 }
 
 .banner__slide_main {

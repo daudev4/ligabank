@@ -1,0 +1,41 @@
+.map__filters-list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 34px;
+  padding-bottom: 28px;
+
+  background-color: $background-color_secondary;
+  border-bottom: 1px solid #c1c2ca;
+}
+
+.map__filters-item {
+  margin-right: 30px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.map__input-check {
+  .input-check__box {
+    margin-right: 10px;
+  }
+}
+
+.map__body {
+  background-color: #eff5e7;
+}
+
+@media (max-width: $max-width_mobile) {
+  .map__filters-list {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .map__filters-item {
+    margin-right: 20px;
+  }
+}
