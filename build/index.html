@@ -368,7 +368,7 @@
                 Шаг 1. Цель кредита
               </legend>
               <p class="calculator__form-item calculator__form-item_no-lable form__item">
-                <select name="calculator-purpose" id="calculator-purpose" required="">
+                <select name="calculator-purpose" id="calculator-purpose" size="4" required="">
                   <option value="none" selected="" disabled="" hidden="">Выберите цель кредита</option>
                   <option value="mortgage">Ипотечное кредитование</option>
                   <option value="auto">Автомобильное кредитование</option>
@@ -380,12 +380,12 @@
               <legend>
                 Шаг 2. Введите параметры кредита
               </legend>
-              <p class="calculator__form-item form__item">
-                <label for="calculator-amount">
+              <p class="calculator__form-item form__item" id="calculator-amount">
+                <label for="calculator-amount-input">
                   Стоимость недвижимости
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="calculator-amount" type="text" name="calculator-amount" value="2000000" data-min="1200000" data-max="25000000" data-step="100000" data-unit="currency" required="">
+                  <input id="calculator-amount-input" type="text" name="calculator-amount" value="2000000" data-min="1200000" data-max="25000000" data-step="100000" data-unit="currency" required="">
                   <button class="input-number__button input-number__button_down" type="button">
                     <span class="visually-hidden">
                       Уменьшить сумму
@@ -402,40 +402,40 @@
                   </span>
                 </span>
               </p>
-              <p class="calculator__form-item form__item">
-                <label for="calculator-initial">
+              <p class="calculator__form-item form__item" id="calculator-initial">
+                <label for="calculator-initial-input">
                   Первоначальный взнос
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="calculator-initial" type="text" name="calculator-initial" value="200000" data-unit="currency" required="">
+                  <input id="calculator-initial-input" type="text" name="calculator-initial" value="200000" data-unit="currency" required="">
                 </span>
                 <span class="calculator__input-range input-range">
                   <input type="range" min="10" max="100" value="10" step="5">
                   <span class="input-range__value">
-                    <output name="calculator-initial-value">10</output>%
+                    <output name="calculator-initial-ratio-value">10</output>%
                   </span>
                 </span>
               </p>
-              <p class="calculator__form-item form__item">
-                <label for="calculator-term">
+              <p class="calculator__form-item form__item" id="calculator-term">
+                <label for="calculator-term-input">
                   Срок кредитования
                 </label>
                 <span class="calculator__input-number input-number">
-                  <input id="calculator-term" type="text" name="calculator-term" value="5" data-unit="period" required="">
+                  <input id="calculator-term-input" type="text" name="calculator-term" value="5" data-unit="period" required="">
                 </span>
                 <span class="calculator__input-range input-range">
-                  <input name="calculator-term-range" type="range" min="5" max="30" value="5" step="1">
-                  <span class="input-range__max">
+                  <input type="range" min="5" max="30" value="5" step="1">
+                  <span class="input-range__min">
                     <output name="calculator-term-min">5</output> лет
                   </span>
-                  <span class="input-range__min">
+                  <span class="input-range__max">
                     <output name="calculator-term-max">30</output> лет
                   </span>
                 </span>
               </p>
               <p class="calculator__form-checkbox">
                 <label class="calculator__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="calculator-checkbox" checked="">
+                  <input class="visually-hidden" type="checkbox" name="calculator-maternal-capital" checked="">
                   <span class="input-check__box"></span>
                   Использовать материнский капитал
                 </label>
@@ -494,31 +494,31 @@
                   <label for="application-number">
                     Номер заявки
                   </label>
-                  <input id="application-number" type="text" name="application-number" value="10" data-unit="numero-symbol" disabled="">
+                  <input id="application-number" type="text" name="application-number" value="10" data-unit="numero-symbol" tabindex="-1" readonly="">
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-purpose">
                     Цель кредита
                   </label>
-                  <input id="application-purpose" type="text" name="application-purpose" value="Ипотека" disabled="">
+                  <input id="application-purpose" type="text" name="application-purpose" value="Ипотека" tabindex="-1" readonly="">
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-amount">
                     Стоимость недвижимости
                   </label>
-                  <input id="application-amount" type="text" name="application-amount" value="2000000" data-unit="currency" disabled="">
+                  <input id="application-amount" type="text" name="application-amount" value="2000000" data-unit="currency" tabindex="-1" readonly="">
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-initial">
                     Первоначальный взнос
                   </label>
-                  <input id="application-initial" type="text" name="application-initial" value="200000" data-unit="currency" disabled="">
+                  <input id="application-initial" type="text" name="application-initial" value="200000" data-unit="currency" tabindex="-1" readonly="">
                 </li>
                 <li class="application__list-item form__item">
                   <label for="application-term">
                     Срок кредитования
                   </label>
-                  <input id="application-term" type="text" name="application-term" value="5" data-unit="period" disabled="">
+                  <input id="application-term" type="text" name="application-term" value="5" data-unit="period" tabindex="-1" readonly="">
                 </li>
               </ul>
               <div class="application__form">
