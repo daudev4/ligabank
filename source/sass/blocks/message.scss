@@ -31,6 +31,10 @@
     top: 25px;
     right: 25px;
   }
+
+  &_hidden {
+    display: none;
+  }
 }
 
 @media (max-width: $max-width_tablet) {
@@ -54,8 +58,7 @@
 
 @media (max-width: $max-width_mobile) {
   .message {
-    width: calc(100% - 30px);
-    margin: 0 15px;
+    width: 100%;
     padding: 35px 15px;
 
     h3 {

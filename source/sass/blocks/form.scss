@@ -49,8 +49,14 @@
     &:focus {
       box-shadow: inset 0 0 0 3px $background-color_accent;
     }
+
+    &.input-invalid {
+      animation: bounce 1s ease-in-out;
+      box-shadow: inset 0 0 0 3px $error-color;
+    }
   }
 }
+
 
 .form__submit {
   padding: 20px;

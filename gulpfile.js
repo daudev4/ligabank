@@ -106,6 +106,7 @@ gulp.task('clean', function () {
 
 gulp.task('concat-js-main', function () {
   return gulp.src([
+    'source/js/main-server.js',
     'source/js/main-slider.js',
     'source/js/main-tabs.js',
     'source/js/main-modal.js',

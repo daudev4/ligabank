@@ -193,6 +193,12 @@
     padding-left: 45px;
 
     border-radius: 0;
+
+    &:not(.swiper-slide-active) {
+      a {
+        display: inline-block;
+      }
+    }
   }
 
   .services__slide-text {
@@ -289,7 +295,7 @@
 
     .button {
       width: 100%;
-      max-width: 290px;
+      max-width: 400px;
       padding-top: 13px;
       padding-bottom: 14px;
     }

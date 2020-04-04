@@ -204,6 +204,12 @@
     .button {
       margin-top: 30px;
     }
+
+    &:not(.swiper-slide-active) {
+      .button {
+        display: block;
+      }
+    }
   }
 
   .banner__slide_main {

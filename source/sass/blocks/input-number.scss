@@ -15,11 +15,12 @@
   @include button-reset;
 
   position: absolute;
-  top: 22px;
+  top: 0;
 
 
-  width: 16px;
-  height: 16px;
+  width: 60px;
+  height: 60px;
+  padding: 22px;
 
   @include transition;
   background-color: transparent;
@@ -36,31 +37,31 @@
   &::before {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 50%;
 
-    width: 100%;
+    width: 16px;
     height: 2px;
-    transform: translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 
   &_down {
-    left: 24px;
+    left: 0;
   }
 
   &_up {
-    right: 24px;
+    right: 0;
 
     &::after {
       content: "";
 
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
 
-      height: 100%;
+      height: 16px;
       width: 2px;
 
-      transform: translateX(-50%);
+      transform: translateX(-50%) translateY(-50%);
     }
   }
 
@@ -86,8 +87,8 @@
   color: $text-color_additional;
 }
 
-@media (max-width: $max-width_mobile) {
-  .input-number__button_up {
-    right: 15px;
+@media (max-width: $max-width_tablet) {
+  .input-number__button {
+    outline: none;
   }
 }

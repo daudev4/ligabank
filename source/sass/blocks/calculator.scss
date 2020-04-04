@@ -110,11 +110,19 @@
   margin-top: 15px;
 }
 
-.calculator__form-checkbox {
+.calculator__form-checkboxes {
   margin: 0;
 
   font-size: $font-size_s;
   line-height: $line-height_default;
+
+  .input-check {
+    margin-bottom: 5px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .calculator__offer {
@@ -151,13 +159,15 @@
 }
 
 .calculator__offer-item {
-  flex: 0 1 41%;
+  flex: 1 1 41%;
   display: inline-flex;
   flex-direction: column;
   padding-bottom: 26px;
 
   &:nth-of-type(2n + 1) {
     flex-basis: 47%;
+    flex-grow: 2;
+    padding-right: 10px;
   }
 
   h4 {
@@ -177,6 +187,11 @@
 
 .calculator__offer-button {
   width: 100%;
+}
+
+.calculator__invalid-message {
+  margin-top: 8px;
+  width: 42.73%;
 }
 
 
@@ -208,7 +223,8 @@
   }
 
   .calculator__application {
-    margin-top: 55px;
+    margin-top: 0;
+    padding-top: 55px;
   }
 
   .calculator__step {
@@ -239,7 +255,8 @@
     }
   }
 
-  .calculator__offer {
+  .calculator__offer,
+  .calculator__invalid-message {
     width: 100%;
     margin-top: 38px;
   }
@@ -271,7 +288,7 @@
   }
 
   .calculator__application {
-    margin-top: 42px;
+    padding-top: 42px;
   }
 
   .calculator__step {
@@ -305,6 +322,10 @@
     }
   }
 
+  .calculator__invalid-message {
+    margin-top: 28px;
+  }
+
   .calculator__offer-list {
     margin-bottom: 15px;
   }
@@ -335,6 +356,9 @@
   }
 
   .calculator__modal-message {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+
     p {
       max-width: 95%;
     }

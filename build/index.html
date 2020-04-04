@@ -368,10 +368,10 @@
                 Шаг 1. Цель кредита
               </legend>
               <p class="calculator__form-item calculator__form-item_no-lable form__item">
-                <select name="calculator-purpose" id="calculator-purpose" size="4" required="">
+                <select id="calculator-purpose" name="calculator-purpose" size="4" required="">
                   <option value="none" selected="" disabled="" hidden="">Выберите цель кредита</option>
                   <option value="mortgage">Ипотечное кредитование</option>
-                  <option value="auto">Автомобильное кредитование</option>
+                  <option value="car">Автомобильное кредитование</option>
                   <option value="consumer">Потребительский кредит</option>
                 </select>
               </p>
@@ -433,12 +433,13 @@
                   </span>
                 </span>
               </p>
-              <p class="calculator__form-checkbox">
-                <label class="calculator__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="calculator-maternal-capital" checked="">
-                  <span class="input-check__box"></span>
-                  Использовать материнский капитал
-                </label>
+              <p class="calculator__form-checkboxes">
+                <span class="input-check">
+                  <input class="visually-hidden" id="maternal-capital" type="checkbox" name="calculator-maternal-capital" checked="">
+                  <label class="input-check__label" for="maternal-capital">
+                    Использовать материнский капитал
+                  </label>
+                </span>
               </p>
             </fieldset>
             <div class="calculator__offer calculator__offer_hidden">
@@ -451,7 +452,7 @@
                     Сумма ипотеки
                   </h4>
                   <b>
-                    1 330 000 рублей
+                    <span id="offer-amount-value">1 330 000</span> рублей
                   </b>
                 </li>
                 <li class="calculator__offer-item" id="offer-interest">
@@ -459,7 +460,7 @@
                     Процентная ставка
                   </h4>
                   <b>
-                    9,40%
+                    <span id="offer-interest-value">9,40</span>%
                   </b>
                 </li>
                 <li class="calculator__offer-item" id="offer-annuity">
@@ -467,7 +468,7 @@
                     Ежемесячный платеж
                   </h4>
                   <b>
-                    27 868 рублей
+                    <span id="offer-annuity-value">27 868</span> рублей
                   </b>
                 </li>
                 <li class="calculator__offer-item" id="offer-income">
@@ -475,13 +476,27 @@
                     Необходимый доход
                   </h4>
                   <b>
-                    61 929 рублей
+                    <span id="offer-income-value">61 929</span> рублей
                   </b>
                 </li>
               </ul>
               <button class="calculator__offer-button button" type="button">
                 Оформить заявку
               </button>
+            </div>
+            <div class="calculator__invalid-message message message_hidden">
+              <h3>
+                Наш банк не выдаёт
+                <span class="message__credit-name">ипотечные кредиты</span>
+                меньше
+                <span class="message__credit-amount-min">
+                  200 000
+                </span>
+                рублей.
+              </h3>
+              <p>
+                Попробуйте использовать другие параметры для расчёта.
+              </p>
             </div>
           </div>
           <div class="calculator__application calculator__application_hidden application">
@@ -526,13 +541,13 @@
                   <label class="visually-hidden" for="application-name">
                     ФИО
                   </label>
-                  <input id="application-name" type="text" name="application-name" autocomplete="name" placeholder="ФИО" required="">
+                  <input id="application-name" type="text" name="application-name" autocomplete="name" placeholder="ФИО" pattern="^[a-zA-Zа-яА-ЯёЁ ]+$" required="">
                 </p>
                 <p class="application__form-item form__item">
                   <label class="visually-hidden" for="application-phone">
                     Телефон
                   </label>
-                  <input id="application-phone" type="text" name="application-phone" autocomplete="tel" placeholder="Телефон" required="">
+                  <input id="application-phone" type="text" name="application-phone" autocomplete="tel" placeholder="Телефон" data-unit="phone" pattern="^\+\d{1}\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" required="">
                 </p>
                 <p class="application__form-item form__item">
                   <label class="visually-hidden" for="application-email">
@@ -576,26 +591,29 @@
         <div class="departments__map map">
           <header class="map__filters">
             <ul class="map__filters-list">
-              <li class="map__filters-item">
-                <label class="map__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="map-russia-checkbox" checked="">
-                  <span class="input-check__box"></span>
-                  Россия
-                </label>
+              <li class="map__filters-item ">
+                <span class="input-check">
+                  <input class="visually-hidden" id="map-russia" type="checkbox" name="map-russia" checked="">
+                  <label class="input-check__label" for="map-russia">
+                    Россия
+                  </label>
+                </span>
               </li>
               <li class="map__filters-item">
-                <label class="map__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="map-cis-checkbox" checked="">
-                  <span class="input-check__box"></span>
-                  СНГ
-                </label>
+                <span class="input-check">
+                  <input class="visually-hidden" id="map-cis" type="checkbox" name="map-cis" checked="">
+                  <label class="input-check__label" for="map-cis">
+                    СНГ
+                  </label>
+                </span>
               </li>
               <li class="map__filters-item">
-                <label class="map__input-check input-check">
-                  <input class="visually-hidden" type="checkbox" name="map-europe-checkbox">
-                  <span class="input-check__box"></span>
-                  Европа
-                </label>
+                <span class="input-check">
+                  <input class="visually-hidden" id="map-europe" type="checkbox" name="map-europe">
+                  <label class="input-check__label" for="map-europe">
+                    Европа
+                  </label>
+                </span>
               </li>
             </ul>
           </header>
@@ -792,21 +810,13 @@
     </div>
   </section>
 
-  <template id="message">
-    <div class="calculator__invalid-message message">
-      <h3>
-        Наш банк не выдаёт
-        <span class="messsage__credit-name">ипотечные кредиты</span>
-        меньше
-        <span class="message__credit-amount-min">
-          200 000
-        </span>
-        рублей.
-      </h3>
-      <p>
-        Попробуйте использовать другие параметры для расчёта.
-      </p>
-    </div>
+  <template id="checkbox">
+    <span class="input-check">
+      <input class="visually-hidden" id="input-check-id" type="checkbox" name="input-check">
+      <label class="input-check__label" for="input-check-id">
+        Европа
+      </label>
+    </span>
   </template>
 
   <script src="js/vendor.js"></script>

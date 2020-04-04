@@ -7,7 +7,9 @@
     this.root = rootElement;
     this.openButton = openButtonElement;
     this.closeButton = this.root.querySelector('.modal__close');
-    this.activateOpenButton();
+    if (this.openButton) {
+      this.activateOpenButton();
+    }
   };
 
   Modal.prototype.open = function () {
@@ -38,8 +40,7 @@
   Modal.prototype.activateOpenButton = function () {
     var modal = this;
 
-    modal.openButton.addEventListener('click', function (evt) {
-      evt.preventDefault();
+    modal.openButton.addEventListener('click', function () {
       modal.open();
     });
   };
