@@ -6,13 +6,10 @@
   var XHR_TIMEOUT = 10000;
   var HTTP_STATUS_OK = 200;
 
-  var load = function (onSuccess, onError, data) {
+  var load = function (onSuccess, onError, url, data) {
     var httpMethod = data
       ? 'POST'
       : 'GET';
-    var url = data
-      ? UPLOAD_URL
-      : DOWNLOAD_URL;
     var xhr = new XMLHttpRequest();
 
     xhr.responseType = 'json';
@@ -38,6 +35,8 @@
 
   window.server = {
     load: load,
+    DOWNLOAD_URL: DOWNLOAD_URL,
+    UPLOAD_URL: UPLOAD_URL
   };
 
 })();
@@ -307,12 +306,6 @@ var sliderServices = new Tabs();
       showPassword();
     }
   };
-})();
-
-'use strict';
-
-(function () {
-  
 })();
 
 'use strict';
@@ -798,7 +791,7 @@ var sliderServices = new Tabs();
       }
 
       if (this.salaryProject.checked) {
-        offerInterest -= this.parameters['offer-interest-bonus'];
+        offerInterest = offerInterest - this.parameters['offer-interest-bonus'];
       }
     }
 
@@ -920,7 +913,7 @@ var sliderServices = new Tabs();
 
       var data = new FormData(evt.target);
 
-      window.server.load(onLoadSuccess, onLoadError, data);
+      window.server.load(onLoadSuccess, onLoadError, window.server.UPLOAD_URL, data);
     };
   };
 
@@ -1037,6 +1030,98 @@ var sliderServices = new Tabs();
   };
 
 })();
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function () {
+  var Options = {};
+
+  var init = function () {
+    var dataUrl = 'data.json';
+    var centerCoords = [56.82, 60.59];
+    var mapContainer = document.querySelector('#map');
+    var mapFilters = document.querySelector('#map-filters-form');
+
+    var yandexMap = new ymaps.Map(mapContainer, {
+      center: centerCoords,
+      zoom: [5],
+      controls: [],
+    },
+    {
+      minZoom: 2,
+      autoFitToViewport: 'always',
+      suppressMapOpenBlock: true,
+    });
+
+    yandexMap.behaviors.disable('scrollZoom');
+
+    yandexMap.controls.add('zoomControl', {
+      size: 'small',
+      position: {
+        top: 200,
+        right: 15,
+      }
+    });
+
+    var objectManager = new ymaps.ObjectManager({
+      clusterize: true,
+      gridSize: 32,
+    });
+
+    objectManager.objects.options.set({
+      iconLayout: 'default#image',
+      iconImageHref: '/img/icon-pin.svg',
+      iconImageSize: [35, 40],
+      iconImageOffset: [-17.6, -42]
+    });
+
+    var setFilter = function (list) {
+      yandexMap.geoObjects.add(objectManager.setFilter(function (item) {
+        var param = item.properties.clusterCaption;
+        return list[param];
+      }));
+    };
+
+    var filter = function () {
+      var filterElements = mapFilters.querySelectorAll('input[type="checkbox"]');
+
+      filterElements.forEach(function (element) {
+        var name = element.getAttribute('name');
+        Options[name] = element.checked;
+      });
+      setFilter(Options);
+    };
+
+    var onLoadSuccess = function (data) {
+      objectManager.add(data);
+      yandexMap.geoObjects.add(objectManager);
+      var bounds = objectManager.getBounds();
+      if (bounds) {
+        yandexMap.setBounds(bounds);
+      }
+      filter();
+    };
+
+    var onLoadError = function (errorText) {
+      throw new Error(errorText);
+    };
+
+    var onFiltersChange = function () {
+      filter();
+    };
+
+    window.server.load(onLoadSuccess, onLoadError, dataUrl);
+    window.addEventListener('resize', function () {
+      if (yandexMap && objectManager) {
+        yandexMap.setBounds(objectManager.getBounds());
+        yandexMap.container.fitToViewport();
+      }
+    });
+    mapFilters.addEventListener('change', onFiltersChange);
+  };
+
+  ymaps.ready(init);
+});
 
 'use strict';
 

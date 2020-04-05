@@ -567,11 +567,11 @@
           Отделения Лига Банка
         </h2>
         <div class="departments__map map">
-          <header class="map__filters">
+          <form class="map__filters" id="map-filters-form">
             <ul class="map__filters-list">
               <li class="map__filters-item ">
                 <span class="input-check">
-                  <input class="visually-hidden" id="map-russia" type="checkbox" name="map-russia" checked>
+                  <input class="visually-hidden" id="map-russia" type="checkbox" name="russia" checked>
                   <label class="input-check__label" for="map-russia">
                     Россия
                   </label>
@@ -579,7 +579,7 @@
               </li>
               <li class="map__filters-item">
                 <span class="input-check">
-                  <input class="visually-hidden" id="map-cis" type="checkbox" name="map-cis" checked>
+                  <input class="visually-hidden" id="map-cis" type="checkbox" name="cis" checked>
                   <label class="input-check__label" for="map-cis">
                     СНГ
                   </label>
@@ -587,16 +587,15 @@
               </li>
               <li class="map__filters-item">
                 <span class="input-check">
-                  <input class="visually-hidden" id="map-europe" type="checkbox" name="map-europe">
+                  <input class="visually-hidden" id="map-europe" type="checkbox" name="europe">
                   <label class="input-check__label" for="map-europe">
                     Европа
                   </label>
                 </span>
               </li>
             </ul>
-          </header>
-          <div class="map__body" id="map" style="width: 100%;height:462px">
-          </div>
+          </form>
+          <div class="map__body" id="map"></div>
         </div>
       </div>
     </section>
@@ -624,12 +623,12 @@
         <nav class="page-footer__nav">
           <ul class="page-footer__nav-list">
             <li class="page-footer__nav-item">
-              <a href="#">
+              <a href="#services">
                 Услуги
               </a>
             </li>
             <li class="page-footer__nav-item">
-              <a href="#">
+              <a href="#calculator">
                 Рассчитать кредит
               </a>
             </li>
@@ -797,8 +796,8 @@
     </span>
   </template>
 
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=11f7024e-0d32-4aee-994d-c57e3c66065d&load=package.standard&lang=ru-RU" type="text/javascript"></script>
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
-
 </body>
 </html>

@@ -481,7 +481,7 @@
       }
 
       if (this.salaryProject.checked) {
-        offerInterest -= this.parameters['offer-interest-bonus'];
+        offerInterest = offerInterest - this.parameters['offer-interest-bonus'];
       }
     }
 
@@ -603,7 +603,7 @@
 
       var data = new FormData(evt.target);
 
-      window.server.load(onLoadSuccess, onLoadError, data);
+      window.server.load(onLoadSuccess, onLoadError, window.server.UPLOAD_URL, data);
     };
   };
 

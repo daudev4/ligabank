@@ -6,13 +6,10 @@
   var XHR_TIMEOUT = 10000;
   var HTTP_STATUS_OK = 200;
 
-  var load = function (onSuccess, onError, data) {
+  var load = function (onSuccess, onError, url, data) {
     var httpMethod = data
       ? 'POST'
       : 'GET';
-    var url = data
-      ? UPLOAD_URL
-      : DOWNLOAD_URL;
     var xhr = new XMLHttpRequest();
 
     xhr.responseType = 'json';
@@ -38,6 +35,8 @@
 
   window.server = {
     load: load,
+    DOWNLOAD_URL: DOWNLOAD_URL,
+    UPLOAD_URL: UPLOAD_URL
   };
 
 })();
