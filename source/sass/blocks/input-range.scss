@@ -1,4 +1,4 @@
-$track-color: #c1c2cA !default;
+$track-color: #c1c2ca !default;
 $thumb-color: $background-color_accent !default;
 
 $thumb-radius: 50% !default;
@@ -41,12 +41,12 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   flex-wrap: wrap;
   justify-content: space-between;
 
-  [type='range'] {
+  [type="range"] {
     width: 100%;
     display: block;
     margin: $thumb-height / 2 0;
 
-    -webkit-appearance: none;
+    appearance: none;
     background: transparent;
 
     &::-moz-focus-outer {
@@ -85,7 +85,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
     &::-webkit-slider-thumb {
       @include thumb;
-      -webkit-appearance: none;
+      appearance: none;
       margin-top: ((-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2);
     }
 

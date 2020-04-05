@@ -94,15 +94,6 @@
     font-weight: 500;
     font-size: $font-size_s;
     line-height: $line-height_default;
-
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  .select-target {
-    display: inline-flex;
-    align-items: center;
   }
 }
 
@@ -194,9 +185,9 @@
   width: 42.73%;
 }
 
-
 .calculator__modal-message {
-  h3, p {
+  h3,
+  p {
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -334,7 +325,7 @@
     flex-basis: 100%;
     padding-bottom: 14px;
 
-    &:nth-of-type(2n+1){
+    &:nth-of-type(2n+1) {
       flex-basis: 100%;
     }
 

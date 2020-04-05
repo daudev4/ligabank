@@ -23,6 +23,7 @@ body {
   color: $text-color_primary;
 
   background-color: $background-color_primary;
+  overflow-x: hidden;
 }
 
 *,
@@ -49,8 +50,6 @@ input,
 textarea,
 select {
   border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 

@@ -19,7 +19,6 @@
 
   @include transition;
   cursor: pointer;
-  border: none;
   border: 1px solid $text-color_primary;
   border-radius: 4px;
   background-color: transparent;
@@ -39,7 +38,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
 
     position: absolute;
     top: 20px;
@@ -52,7 +51,7 @@
     @include transition;
     border-width: 2px;
     border-style: solid;
-    border-color:  transparent transparent $text-color_primary $text-color_primary;
+    border-color: transparent transparent $text-color_primary $text-color_primary;
 
     transform: rotate(-45deg);
   }

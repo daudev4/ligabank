@@ -65,20 +65,20 @@
     fill: $text-color_primary;
   }
 
-  #eye_closed {
+  .eye_closed {
     display: none;
   }
 
-  #eye_opened {
+  .eye_opened {
     display: block;
   }
 
   &_closed {
-    #eye_closed {
+    .eye_closed {
       display: block;
     }
 
-    #eye_opened {
+    .eye_opened {
       display: none;
     }
   }
