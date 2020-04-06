@@ -1070,7 +1070,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     objectManager.objects.options.set({
       iconLayout: 'default#image',
-      iconImageHref: '/img/icon-pin.svg',
+      iconImageHref: 'img/icon-pin.svg',
       iconImageSize: [35, 40],
       iconImageOffset: [-17.6, -42]
     });
