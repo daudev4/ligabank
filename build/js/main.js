@@ -336,15 +336,8 @@ var sliderServices = new Tabs();
     var parameters = {};
 
     switch (purpose) {
-      case 'none':
-        parameters = {
-          'isActive': false
-        };
-        break;
-
       case 'car':
         parameters = {
-          'isActive': true,
           'calculator-type': 'car',
           'calculator-purpose': 'Автокредит',
           'calculator-amount-label': 'Стоимость автомобиля',
@@ -380,7 +373,6 @@ var sliderServices = new Tabs();
 
       case 'mortgage':
         parameters = {
-          'isActive': true,
           'calculator-type': 'mortgage',
           'calculator-purpose': 'Ипотека',
           'calculator-amount-label': 'Стоимость недвижимости',
@@ -411,7 +403,6 @@ var sliderServices = new Tabs();
 
       case 'consumer':
         parameters = {
-          'isActive': true,
           'calculator-type': 'consumer',
           'calculator-purpose': 'Потребительский кредит',
           'calculator-amount-label': 'Сумма кредита',
@@ -676,9 +667,8 @@ var sliderServices = new Tabs();
     this.purpose.addEventListener('change', function (evt) {
       var purposeValue = evt.target.value;
 
-      calculator.parameters = getParameters(purposeValue);
-
-      if (purposeValue !== 'none') {
+      if (purposeValue) {
+        calculator.parameters = getParameters(purposeValue);
         calculator.activate();
       } else {
         calculator.stepTwo.classList.add('calculator__step_hidden');
