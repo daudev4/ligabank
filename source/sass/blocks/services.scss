@@ -156,6 +156,8 @@
   img {
     display: block;
     width: 100%;
+    object-fit: contain;
+    background-color: $background-color_secondary;
   }
 }
 
@@ -241,6 +243,7 @@
 
   .services__slide-image {
     flex-basis: 42.63%;
+    font-size: $font-size_s;
   }
 }
 
@@ -319,5 +322,7 @@
     right: 0;
 
     padding-top: 0;
+
+    font-size: $font-size_xs;
   }
 }
