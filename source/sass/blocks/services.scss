@@ -35,6 +35,8 @@
   border-radius: 0;
   background-color: $background-color_primary;
   opacity: 0.8;
+
+  @include transition;
   cursor: pointer;
 
   svg {
@@ -71,11 +73,15 @@
   padding-bottom: 60px;
   padding-left: 70px;
 
+  @include transition;
   background-color: $background-color_secondary;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
+  opacity: 1;
 
   &:not(.swiper-slide-active) {
+    opacity: 0.2;
+
     a {
       display: none;
     }
@@ -186,6 +192,10 @@
 
   .services__tabs-list {
     display: none;
+  }
+
+  .services__slider {
+    background-color: $background-color_secondary;
   }
 
   .services__slide {
