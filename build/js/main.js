@@ -1146,6 +1146,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.toggle('no-scroll');
     });
 
+    menuItems.forEach(function (item) {
+      item.addEventListener('click', onMenuItemClick);
+    });
+
     window.addEventListener('resize', function () {
       if (window.innerWidth >= WIDTH_TABLET) {
         menuItems.forEach(function (item) {
