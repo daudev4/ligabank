@@ -47,7 +47,7 @@
   border: none;
 }
 
-@mixin transition($property: all, $duration: 0.3s, $function: ease-in, $delay: 0s) {
+@mixin transition($property: all, $duration: 0.3s, $function: ease-in-out, $delay: 0s) {
   transition: $property $duration $function $delay;
 }
 

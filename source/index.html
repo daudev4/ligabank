@@ -26,7 +26,7 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
+<body class="no-js">
   <div style="display: none">
     <include src="build/img/sprite_auto.svg"></include>
   </div>
@@ -44,29 +44,35 @@
           Логотип Лига Банк
         </span>
       </a>
-      <nav class="page-header__nav">
-        <button class="page-header__nav-toggle" type="button">
+      <nav class="page-header__nav menu menu_closed">
+        <button class="menu__toggle" type="button">
           <span class="visually-hidden">
             Открыть/Закрыть меню
           </span>
+          <svg class="menu__icon menu__icon_open" width="16" height="12">
+            <use xlink:href="#icon-menu"></use>
+          </svg>
+          <svg class="menu__icon menu__icon_close" width="12" height="12">
+            <use xlink:href="#icon-cross"></use>
+          </svg>
         </button>
-        <ul class="page-header__nav-list">
-          <li class="page-header__nav-item">
+        <ul class="page-header__nav-list menu__body">
+          <li class="page-header__nav-item menu__item">
             <a href="#services">
               Услуги
             </a>
           </li>
-          <li class="page-header__nav-item">
+          <li class="page-header__nav-item menu__item">
             <a href="#calculator">
               Рассчитать кредит
             </a>
           </li>
-          <li class="page-header__nav-item">
+          <li class="page-header__nav-item menu__item">
             <a href="#">
               Контакты
             </a>
           </li>
-          <li class="page-header__nav-item">
+          <li class="page-header__nav-item menu__item">
             <a href="#">
               Задать вопрос
             </a>
@@ -290,7 +296,7 @@
                     srcset="img/services__item-3_mobile@1x.jpg 1x, img/services__item-3_mobile@2x.jpg 2x">
                   <source media="(max-width: 1023px)"
                     srcset="img/services__item-3_tablet@1x.jpg 1x, img/services__item-3_tablet@2x.jpg 2x">
-                  <img src="img/services__item-3_desktop@1x.jpg" loadgin="lazy" width="440" height="290"
+                  <img src="img/services__item-3_desktop@1x.jpg" loading="lazy" width="440" height="290"
                     srcset="img/services__item-3_desktop@2x.jpg 2x" alt="Страхование Лига Банка">
                 </picture>
               </div>
