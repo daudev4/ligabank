@@ -8,7 +8,7 @@
   var menu = function () {
     var root = document.querySelector('.menu');
     var menuButton = root.querySelector('.menu__toggle');
-    var menuItems = root.querySelectorAll('.menu__item');
+    var menuItems = root.querySelectorAll('.menu__item a');
 
     var onMenuItemClick = function () {
       root.classList.toggle('menu_closed');

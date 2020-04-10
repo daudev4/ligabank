@@ -1,7 +1,6 @@
 html,
 body {
   max-width: 100%;
-  height: 100%;
 }
 
 html {
@@ -18,6 +17,7 @@ body {
   flex-direction: column;
   width: 100%;
   min-width: 320px;
+  min-height: 100%;
 
   @include font-main();
   color: $text-color_primary;
@@ -65,5 +65,11 @@ svg {
 @media (max-width: $max-width_mobile) {
   main {
     margin-top: 48px;
+  }
+
+  .no-js {
+    main {
+      margin-top: 0;
+    }
   }
 }

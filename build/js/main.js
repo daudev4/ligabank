@@ -785,7 +785,7 @@ var sliderServices = new Tabs();
       }
     }
 
-    if (offerAmount < this.parameters['offer-amount-min']) {
+    if (!offerAmount || offerAmount < this.parameters['offer-amount-min']) {
       this.offer.classList.add('calculator__offer_hidden');
       this.message.classList.remove('message_hidden');
       this.messageCreditName.textContent = this.parameters['offer-message-credit-name'];
@@ -923,6 +923,8 @@ var sliderServices = new Tabs();
 
         if (!calculator.amount.isValid) {
           calculator.initial.inputNumberMask.value = '0';
+          calculator.initial.inputRangeField.value = calculator.parameters['calculator-initial-ratio'];
+          calculator.initial.inputRangeValue.value = calculator.parameters['calculator-initial-ratio'];
         } else {
           calculator.initial.inputNumberMask.value = getInitialString(initialRatio, evt.target.value);
         }
@@ -934,6 +936,7 @@ var sliderServices = new Tabs();
 
       if (evt.target === calculator.amount.inputNumberButtonUp) {
         calculator.amount.inputNumberMask.value = String(amountValue + calculator.parameters['calculator-amount-step']);
+        amountValue = getIntValue(calculator.amount.inputNumberField.value);
 
         if (amountValue > calculator.parameters['calculator-amount-max']) {
           calculator.amount.inputNumberMask.value = String(calculator.parameters['calculator-amount-max']);
@@ -942,13 +945,16 @@ var sliderServices = new Tabs();
 
       if (evt.target === calculator.amount.inputNumberButtonDown) {
         calculator.amount.inputNumberMask.value = String(amountValue - calculator.parameters['calculator-amount-step']);
+        amountValue = getIntValue(calculator.amount.inputNumberField.value);
 
         if (amountValue < calculator.parameters['calculator-amount-min']) {
           calculator.amount.inputNumberMask.value = String(calculator.parameters['calculator-amount-min']);
         }
       }
 
-      if (evt.target === calculator.amount.inputNumberButtonDown || calculator.amount.inputNumberButtonUp) {
+      if (evt.target === calculator.amount.inputNumberButtonDown || evt.target === calculator.amount.inputNumberButtonUp) {
+        calculator.amount.checkValidity(calculator.parameters['calculator-amount-min'], calculator.parameters['calculator-amount-max']);
+
         if (!calculator.amount.isValid) {
           calculator.amount.inputNumber.classList.remove('input-number_invalid');
           calculator.amount.inputNumberMask.updateOptions(getMaskOptions(calculator.amount.inputNumberField));
@@ -1134,7 +1140,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var menu = function () {
     var root = document.querySelector('.menu');
     var menuButton = root.querySelector('.menu__toggle');
-    var menuItems = root.querySelectorAll('.menu__item');
+    var menuItems = root.querySelectorAll('.menu__item a');
 
     var onMenuItemClick = function () {
       root.classList.toggle('menu_closed');
